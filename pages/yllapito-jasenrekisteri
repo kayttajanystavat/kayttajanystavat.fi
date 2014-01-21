@@ -1,0 +1,19 @@
+<p><h3>Jäsenmäärät</h3></p>
+<p>
+<?php
+ $sql_maara = "SELECT COUNT(*) FROM Jasenrekisteri WHERE poistettu = 0";
+ $data = mysql_query($sql_maara);
+
+ $maara = mysql_fetch_row($data);
+ print($maara[0]);
+?>
+</p>
+<p><h3>50 viimeisintä jäsentä</h3></p>
+<?php
+  $sql_tiedot = "SELECT etunimi, sukunimi, email, rek_pvm FROM Jasenrekisteri ORDER BY id DESC limit 50";
+  $tulos_tiedot = mysql_query($sql_tiedot);
+  
+  while ( $row = mysql_fetch_row($tulos_tiedot) ) {
+    print( "<p>" . $row[3] . " - " . $row[0] . " " . $row[1] . " - " . $row[2] . "</p>\n");
+  }
+?>

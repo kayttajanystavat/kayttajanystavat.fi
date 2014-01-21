@@ -1,0 +1,37 @@
+<ul>
+  <li><a href="/etusivu"<?php if($sivu == "etusivu") echo " class=\"valittu\""; ?>>Etusivu</a></li>
+  <li><a href="/yhdistys"<?php if($sivu == "yhdistys") echo " class=\"valittu\""; ?>>Yhdistys</a>
+  <?php
+    if($sivu == "yhdistys") {
+  ?>
+      <ul class="alavalikko">
+        <li><a href="/yhdistys/esittely"<?php if(($sivu == yhdistys) AND ($alasivu == "yhdistys-esittely")) echo " class=\"valittu\""; ?>>Esittely</a></li>
+        <li><a href="/yhdistys/hallitus"<?php if(($sivu == yhdistys) AND ($alasivu == "yhdistys-hallitus")) echo " class=\"valittu\""; ?>>Hallitus</a></li>
+        <li><a href="/yhdistys/saannot"<?php if(($sivu == yhdistys) AND ($alasivu == "yhdistys-saannot")) echo " class=\"valittu\""; ?>>Säännöt</a></li>
+        <li><a href="/yhdistys/arkisto"<?php if(($sivu == yhdistys) AND ($alasivu == "yhdistys-arkisto")) echo " class=\"valittu\""; ?>>Arkisto</a></li>
+      </ul>
+  <?php
+    }
+  ?>
+  </li>
+  <li><a href="/tapahtumat"<?php if($sivu == "tapahtumat" OR $sivu == "ilmoittaudu") echo " class=\"valittu\""; ?>>Tapahtumat</a></li>
+  <?php
+    if($sivu == "tapahtumat" OR $sivu == "ilmoittaudu") {
+  ?>
+      <ul class="alavalikko">
+        <li><a href="/tapahtumat/tulevat"<?php if(($sivu == "tapahtumat") AND ($alasivu == "tapahtumat-tulevat")) echo " class=\"valittu\""; ?>>Tulevat</a></li>
+        <li><a href="/tapahtumat/menneet"<?php if(($sivu == "tapahtumat") AND ($alasivu == "tapahtumat-menneet")) echo " class=\"valittu\""; ?>>Menneet</a></li>
+      </ul>
+  <?php
+    }
+  ?>
+  <?php
+    if($onKirjautunut == false) {
+  ?>
+  <li><a href="/liity"<?php if($sivu == "liity") echo " class=\"valittu\""; ?>>Liity jäseneksi!</a></li>
+  <?php
+    }
+  ?>
+  <li><a href="/yhteys"<?php if($sivu == "yhteys") echo " class=\"valittu\""; ?>>Yhteystiedot</a></li>
+</ul>
+

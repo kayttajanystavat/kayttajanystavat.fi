@@ -1,0 +1,64 @@
+<?php
+session_start();
+$tyyppi = mysql_real_escape_string(stripslashes(htmlspecialchars($_GET['id'])));
+if(($tyyppi == "liity") AND ISSET($_SESSION['kiitos_email_osoite']))
+{
+  $kiitos_email_osoite = $_SESSION['kiitos_email_osoite'];
+  echo "<p>Kiitos ja tervetuloa Käyttäjän ystävät ry:n jäseneksi!</p><p>Sähköpostiosoitteesi <strong>$kiitos_email_osoite</strong> lisätään yhdistyksen sähköpostilistalle ja saat siitä vielä erillisen ilmoituksen. (Lisäys tehdään omakätisesti hallituksen toimesta, joten siinä saattaa valitettavasti tovi vierähtää.)</p><p>Tutustu myös yhdistyksen toimintaan näillä sivuilla ja ilmoittaudu mukaan tapahtumiin!</p>";
+  // echo "<p>Kiitos, <strong>vahvistuspyyntö on nyt lähetetty</strong> sähköpostitse osoitteseen <strong>$kiitos_email_osoite</strong>.</p>";
+  // echo "<p><strong>HUOM!</strong> Jäsenhakemus tulee vielä vahvistaa klikkaamalla sähköpostissa olevaa linkkiä.</p>";
+  // echo "<p>Jos sähköpostin roskapostisuodatusasetuksesi estävät vastaanottamasta vahvistusviestiä, <a href=\"mailto:hallitus@kayttajanystavat.fi?subject=Jäsenyyden%20vahvistaminen%20($kiitos_email_osoite)\">ilmoita asiasta hallitukselle</a> ja he vahvistavat jäsenyyden manuaalisesti.</p>";
+  unset($_SESSION["kiitos_email_osoite"]);
+}
+elseif(($tyyppi == "vahvista") AND ISSET($_SESSION['vahvista_email_osoite']))
+{
+  $vahvista_email_osoite = $_SESSION['vahvista_email_osoite'];
+  echo "<p>Kiitos hakemuksen vahvistamisesta ja tervetuloa Käyttäjän ystävät ry:n jäseneksi! Sähköpostiosoite <strong>$vahvista_email_osoite</strong> lisätään yhdistyksen sähköpostilistalle.</p>";
+  echo "<p>Yhdistyksen toiminnasta, kuten järjestettävistä tapahtumista ja yhdistyksen kokouksista tiedotetaan näillä verkkosivuilla sekä sähköpostilistalla.</p>";
+  unset($_SESSION['vahvista_email_osoite']);
+  // HAE KANNASTA TIEDOT EMAILIN PERUSTEELLA
+  // EMAIL HALLITUS@KAYTTAJANYSTAVAT.FI
+}
+elseif(($tyyppi == "tapahtumat") AND (ISSET($_SESSION['kiitos_tapahtuma_id'])))
+{
+  $kiitos_tapahtuma_id = $_SESSION['kiitos_tapahtuma_id'];
+  $kiitos_tapahtuma_osallistuja = $_SESSION['kiitos_tapahtuma_osallistuja'];
+  $kiitos_tapahtuma_taynna = $_SESSION['kiitos_tapahtuma_taynna'];
+  if($kiitos_tapahtuma_taynna == '1')
+  {
+    echo "<p><strong>Tapahtuma on täynnä, olet jonossa</strong>. Yhteyshenkilö ottaa sähköpostitse yhteyttä, jos paikkoja vapautuu tai määrä kasvaa.</p>";	
+  }
+  else
+  {
+    echo "<p>Kiitos, ilmoittautuminen on kirjattu. Yhteyshenkilö ottaa sähköpostitse yhteyttä osallistujiin ennen tapahtumaa tarkempia ohjeita antaakseen.</p>";
+  $sql_yhteenveto = "SELECT UNIX_TIMESTAMP(ajankohta_alk) AS unixaika, nimi, sijainti, sijainti_linkki, vastuuhlo, maksu FROM Tapahtumat WHERE id='$kiitos_tapahtuma_id'";
+	  $result_yhteenveto = mysql_query($sql_yhteenveto);
+	  // sijoitetaan tietokantahaun tulokset muuttujiin
+	  $rivi_yhteenveto = mysql_fetch_row($result_yhteenveto);
+	  $t_aika = $rivi_yhteenveto[0];
+	  $t_nimi = $rivi_yhteenveto[1];
+	  $t_sijainti = $rivi_yhteenveto[2];
+	  $t_sijainti_linkki = $rivi_yhteenveto[3];
+  	  $t_vastuuhlo = $rivi_yhteenveto[4];
+	  $t_maksu = $rivi_yhteenveto[5];
+	
+	  $t_vkonpaiva_indeksi = date("w", $t_aika);
+	  $paivat_fi_lyh = array("maanantai", "tiistai", "keskiviikko", "torstai", "perjantai", "lauantai", "sunnuntai");
+	  $vkonpaiva_lyh = $paivat_fi_lyh[$t_vkonpaiva_indeksi - 1];
+	  $t_pvm = date("j.n.Y", $t_aika);
+	  $t_klo = date("H.i", $t_aika);
+	
+	  echo "<p>Osallistuja: <strong>$kiitos_tapahtuma_osallistuja</strong></p><p>Tapahtuma: <strong>$t_nimi</strong><br />Ajankohta: <strong>$vkonpaiva_lyh $t_pvm klo $t_klo</strong><br />Paikka: <strong><a href=\"$t_sijainti_linkki\">$t_sijainti</a></strong><br />Yhteyshenkilö: <strong>$t_vastuuhlo</strong></p><p>Ilmoita (joko suoraan yhteyshenkilölle tai <a href=\"mailto:hallitus@kayttajanystavat.fi\">hallitus@kayttajanystavat.fi</a>), jos osallistumisesi peruuntuu.</p>";
+  }
+		
+  // echo "<p><i>Tähän vielä yhteenveto tapahtumasta (nimi, ajankohta, vastuuhenkilö) ja ohjeet kuinka toimia, jos ei pääsekään paikalle.</i></p>";
+  unset($_SESSION['kiitos_tapahtuma_id']);
+  unset($_SESSION['kiitos_tapahtuma_osallistuja']);
+  unset($_SESSION['kiitos_tapahtuma_taynna']);
+}
+else
+{
+  header('Location: http://www.kayttajanystavat.fi/');
+}
+?>
+

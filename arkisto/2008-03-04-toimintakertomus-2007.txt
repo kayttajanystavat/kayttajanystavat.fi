@@ -1,0 +1,78 @@
+Toimintakertomus 2007
+
+Käyttäjän ystävät ry:n toimintakertomus 2007
+
+Vuosi 2007 oli Käyttäjän ystävät ry:n kuudes kokonainen vuosi. Yhdistyksen toiminnassa jatkettiin vuonna 2006 hyviksi koettujen aktiviteettien järjestämistä: tutustumisexcuja yrityksiin ja illanistujaisia jäsenille. Nämä toimintamuodot keräsivätkin varsin hyvää osanottoa. Suuria muutoksia ei toiminnassa tapahtunut. Yhdistyksessä oli vuoden lopussa 63 jäsentä. Uusia jäseniä liittyi 12. Vuoden aikana jäsenrekisteristä poistettiin 24 jäsenmak-sun maksamatta jättänyttä.
+
+1 HALLITUS 
+
+Yhdistyksen hallitukseen kuuluivat: 
+	• Tuukka Muroke (puheenjohtaja) 
+	• Esko Lehtinen (sihteeri) 
+	• Antti Lustila (rahastonhoitaja) 
+	• Matias Pietilä (varapuheenjohtaja) 
+	• Juha Nieminen
+
+2 TAPAHTUMAT
+
+2.1 Excu SWECO PIC 26.1. 
+
+Tutustuttiin konsulttiyritys SWECO PIC oy:n toimintaan ja fyysisten tuotteiden käytettävyyssuunnitteluun yrityksen tiloissa. Hyvin mielenkiintoisen esityksen jälkeen isännät tarjosivat myös saunan.
+
+2.2 Baarien käytettävyystutkimus I 2.2. 
+
+Underbar:sta alkaneella tutkimuskierroksella tutustuttiin myös muihin Kruunuhaan baa-reihin, ja käytettävyysarviointeja suoritettiin oikeaoppisesti
+
+2.3 Excu Idean Research 19.2. 
+
+Idean Researchille tehty excu keräsi sopivasti väkeä: Isäntä Mikko-Pekka Hanski esitteli yrityksen toimintaa ja tulevaisuuden suunitelmia n. 15 kiinnostuneelle.
+
+2.4 Baarien käytettävyystutkimus II 16.3. 
+
+Uusintaotos tehtiin Ruoholahdesta, missä One Pintin olutvalikoimat todettiin niin mie-lenkiintoisiksi ja kattaviksi, ettei muita kohteita katsottu tarpeelliseksi tutkia.
+
+2.5 Excu Etnoteam 18.4.
+
+Etnoteam-excu keräsi parisenkymmentä kiinnostunutta Autotalon kattosaunalle.
+
+2.6 Käyttäjän ystävien vuosikokous 28.3. 
+
+Vuosikokouksessa käsiteltiin sääntömääräisten asioiden lisäksi yhdistyksen uusien sään-töjen II hyväksyminen.
+
+2.7 Reuna 2007: tila ja tilanteet –seminaari 10.5. 
+
+Tarkempi kuvaus seminaarista kohdassa ”Muu toiminta”.
+
+2.8 Baarien käytettävyystutkimus III 25.5. 
+
+Tutkimuskohteena olutravintola Vastarannan Kiiski Töölössä. Paikka todettiin varsin hy-vin käytettäväksi.
+
+2.9 Baarien käytettävyystutkimus IV 25.9. 
+
+Tällä kertaa kohteeksi valikoitui Ompu-baari Kalliossa, jonka lisäksi tutustuttiin myös Juttutupaan. Molemmat paikat varsin käytettäviä, ensimmäinen ehkä hieman kolho, jäl-kimmäinen varsin täynnä.
+
+2.10 Excu GE Healthcare 6.11. 
+
+GE Healthcare esitteli käytettävyyssuunnittelunsa historiaa, sovellusalueita ja tuloksia. Kuulemassa kymmenkunta kiinnostunutta.
+
+2.11 Excu Linja Design 21.11. 
+
+Exculla Linja Designille tutustuttiin muotoilutoimistoon, joka oli vaihtanut painopisteen-sä fyysisten tuotteiden muotoilusta ohjelmistojen muotoiluun. Muotoilutaustainen lähes-tymistapa käytettävyyteen ja ohjelmistokehitykseen herätti vireää keskustelua.
+
+2.12 Vuosijuhla 23.11. 
+
+KäY juhlisti 6-vuotista taivaltaan käymällä illallistamassa ravintola Knossoksessa 16 hengen voimin. Tänä vuonna formaalin vuosijuhlan sijaan vietetty epämuodollisempi ra-vintolajuhla oli varsin onnistunut kokeilu.
+
+2.13 Pikkujoulut ja Vaalikokous 12.12. 
+
+KäY:n pikkujoulut ja vaalikokous pidettiin perinteiseen tapaan yhdistettynä tapahtumana. Glögi ja tortut tekivät kauppansa, ja varsin vähäisestä osanotosta huolimatta uusi hallitus tuli valituksi.
+
+2.14 Muu toiminta 
+
+Helsingissä 10.5. järjestetyssä ”Reuna 2007: Tila ja tilanteet” –seminaarissa käsiteltiin käyttäjäkeskeisen tilasuunnittelun mahdollisuuksia. Osallistujia oli n. 40, ja ohjelma pu-hujineen löytyy osoitteesta http://reuna.info.
+
+Seminaari oli onnistunut ja keskustelu kiinnostavaa. Pääjärjestäjinä toimivat Tuukka Mu-roke Käyttäjän ystävistä ja Antti Salovaara SIGCHI Finlandista. Nimi ”Reuna” ja www-osoite http://reuna.info ovat käytettävissä mahdollisia myöhempiä käytettävyyden reuna-alueita sivuavia seminaareja varten, kyselyt pääjärjestäjille.
+
+Yhdistyksen uudet säännöt hyväksyttiin kahdessa yhdistyksen kokouksessa, ja lähetettiin PRH:lle rekisteröitäviksi. Tätä kirjoitettaessa uusi versio säännöistä PRH:n pyytämin lähinnä kosmeettisin korjauksin on PRH:n käsiteltävänä.
+
+Tiedotuksen saralla tehtiin uusia avauksia: perustettiin irc-kanava #kay ja Facebook-ryhmä ”Käyttäjän ystävät”. Uutta T-paitojen tilausta ei ehditty järjestää, mutta yhdistyksen haalarimerkki teetettiin.

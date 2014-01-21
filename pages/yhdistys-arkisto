@@ -1,0 +1,47 @@
+<?php
+  $sql_arkisto = "SELECT id, dokumentti, pvm, tiedosto, arkistotiedosto, tyyppi FROM Arkisto WHERE VISIBLE='1' ORDER BY pvm DESC";
+  $result_arkisto = mysql_query($sql_arkisto);
+  $rivilkm = mysql_num_rows($result_arkisto);
+
+if(mysql_num_rows($result_arkisto) == 0)
+{
+  echo "<p>Arkiston tiedostoja vielä kootaan.</p>";
+}
+else
+{
+  echo "<p>Arkistoon on koottu Käyttäjän ystävät ry:n viralliset dokumentit. Puuttuvat tiedostot lisätään, kunhan ne löytyvät sähköisessä muodossa.</p>";
+  echo "<div id=\"arkisto\">";
+  echo "<table>";
+  echo "<tr>";
+  echo "<th class=\"oik\">Päiväys</th>";
+  echo "<th>Dokumentin nimi</th>";
+  echo "<th>Tiedosto</th>";
+  echo "</tr>";
+  while($rivi_arkisto = mysql_fetch_assoc($result_arkisto))
+  {
+    $fid = $rivi_arkisto['id'];
+    $dokumentti = $rivi_arkisto['dokumentti'];
+    $pvm = $rivi_arkisto['pvm'];
+    $ppvm = explode("-", $pvm);
+    $ypvm = intval($ppvm[2]) . "." . intval($ppvm[1]) . "." . intval($ppvm[0]);
+    $tiedosto = $rivi_arkisto['tiedosto'];
+    $arkistotiedosto = $rivi_arkisto['arkistotiedosto'];
+    $tyyppi = $rivi_arkisto['tyyppi'];
+
+    if($tyyppi == "text/plain") $tiedostoTyyppi = "Teksti";
+    elseif($tyyppi = "application/pdf") $tiedostoTyyppi = "PDF";
+    elseif($tyyppi = "application/msword") $tiedostoTyyppi = "Word";
+    else $tiedostoTyyppi = "muu";
+
+    echo "<tr>";
+    echo "<td class=\"oik\">$ypvm</td>";
+    echo "<td><a href=\"/yhdistys/arkisto/tiedosto/$fid\">$dokumentti</a></td>";
+    echo "<td>$tiedostoTyyppi</td>";
+    echo "</tr>";    
+  }
+  echo "</table>";
+  echo "</div>";
+  echo "<p>Yhteensä $rivilkm tiedostoa.</p>";
+}
+?>
+

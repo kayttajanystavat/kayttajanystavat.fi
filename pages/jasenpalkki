@@ -1,0 +1,53 @@
+<div id="jasentiedot">
+
+<?php
+if($onKirjautunut == true)
+{
+  if($ekakerta == true)
+  {
+    echo "<script>";
+    echo "\$(window).load(function() {";
+    echo " \$('#jasenpalkki').show('blind', {direction: 'vertical'}, 750);";
+    echo "});";
+    echo "</script>";
+    unset($_SESSION["ekakerta"]);
+    $ekakerta = false;
+  }
+  $sql_tiedot = "SELECT email FROM Jasenrekisteri WHERE id='$tunnus'";
+  $tulos_tiedot = mysql_query($sql_tiedot);
+  $rivi_tiedot = mysql_fetch_row($tulos_tiedot);
+  $tunnusemail = $rivi_tiedot[0];
+  // echo "<span id=\"jasentunnari\">$tunnusemail</span>";
+}
+?>
+
+<div id="jasenmenu">
+<ul>
+    <li><a href="/kayttajanystavat/ulos">Kirjaudu ulos</a></li> 
+    <li><a href="">Jäsenyys</a></li>
+
+<?php
+  if($onAdmin == true)
+  {
+    echo "<li><a href=\"#\">Admin</a>";
+    echo "<ul>";
+    echo "<li><a href=\"/yllapito/jasenrekisteri\">Jäsenrekisteri</a></li>";
+    echo "<li><a href=\"/yllapito/tapahtumat\">Tapahtumat</a></li>";
+    // echo "<li><a href=\"#\">Kaks</a></li>";
+    // echo "<li><a href=\"#\">Kolme</a></li>";
+    echo "</ul>";
+    echo "</li>";
+  }
+?>
+    <li><a href="">Omat tiedot</a> 
+      <ul> 
+        <li><a href="#">Henkilötiedot</a></li> 
+        <li><a href="#">Omat ilmoittautumiset</a></li>
+        <li><a href="#">Vaihda sähköpostiosoite</a></li>
+        <li><a href="#">Vaihda salasana</a></li>
+      </ul> 
+    </li>
+</ul>
+</div>
+ 
+</div>

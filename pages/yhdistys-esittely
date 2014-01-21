@@ -1,0 +1,40 @@
+<p>Käyttäjän ystävät ry on vuonna 2001 perustettu käytettävyysopiskelijoiden poikkitieteellinen yhdistys. Yhdistys kokoaa yhteen samanhenkisiä, käytettävyydestä kiinnostuneita ihmisiä. Yhdistyksen jäsenistöön kuuluu etupäässä <a href="http://www.aalto.fi/">Aalto-yliopiston</a> ja <a href="http://www.helsinki.fi/yliopisto">Helsingin yliopiston</a> opiskelijoita sekä jo valmistuneita käytettävyysalan osaajia. Mukaan voi liittyä kuka tahansa käytettävyydestä kiinnostunut!</p>
+
+<?php
+// korvaa tämä jollain responsive slider -virityksellä
+$yllari = rand(0, 6);
+$kuvatiedosto = array("reaktor02.jpg","etnoteam01.jpg","suunto01.jpg","vuosijuhla01.jpg","elisa01.jpg", "suunto02.jpg","reaktor03.jpg");
+$alt_teksti = array("Reaktor","Etnoteam","Suunto","Vuosijuhla","Elisa","Suunto","Reaktor");
+$kuvateksti = array("Reaktor, lokakuu 2011","Etnoteam, marraskuu 2011","Suunto, joulukuu 2011","Vuosijuhla, marraskuu 2011","Elisa, syyskuu 2011","Suunto, joulukuu 2011","Reaktor, lokakuu 2011");
+?>
+
+<div class="polaroid iso">
+
+  <div id="slides">
+    <img src="/images/rs-reaktor02.jpg" alt="" />
+    <img src="/images/rs-etnoteam01.jpg" alt="" />
+    <img src="/images/rs-vuosijuhla01.jpg" alt="" />
+    <img src="/images/rs-suunto01.jpg" alt="" />
+    <img src="/images/rs-reaktor01.jpg" alt="" />
+    <img src="/images/rs-elisa01.jpg" alt="" />
+    <img src="/images/rs-suunto02.jpg" alt="" />
+  </div>
+
+  <?php
+  // echo "<img src=\"/images/$kuvatiedosto[$yllari]\" alt=\"$alt_teksti[$yllari]\" /> <span>$kuvateksti[$yllari]</span>";
+  ?>
+</div>
+
+<p>Käyttäjän ystävät järjestää jäsenilleen mielekästä toimintaa eri muodoissa. Yhteyksiä yritysmaailmaan luodaan yritysvierailuilla, joita pyritään järjestämään tasaisin väliajoin ja monipuolisesti erilaisiin yrityksiin. Muita toimintamuotoja ovat saunaillat, pikkujoulut, osallistuminen muiden järjestämiin tapahtumiin ja muu vapaamuotoinen verkostoitumista edesauttava yhteinen hauskanpito.</p>
+
+<img src="/images/kay-leima-3.png" alt="Yhdentekevä täytekuva - Käyttäjän ystävät 2001" style="float: right; padding: 14px;" />
+
+<p>Yhdistys tekee yhteistyötä yritysten, <a href="http://www.sigchi.fi/">SIGCHI Finlandin</a> sekä yliopistojen ainejärjestöjen kanssa pyrkimyksenään järjestää yhä monimuotoisempaa toimintaa mm. yhteistapahtumien muodossa.</p>
+
+<!-- 
+- Käytettävyyskoulu 
+- vuosijuhlat
+- sääntömääräiset kokoukset
+- sähköpostilista: työpaikat, tapahtumat
+- vuosittain valittavaan hallitukseen kaivataan innokkaita toimijoita
+-->

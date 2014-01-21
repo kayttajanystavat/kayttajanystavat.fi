@@ -1,0 +1,28 @@
+
+<?php
+// kommentoi alla oleva rivi, niin ylläpito toimii -Timo
+$poisKaytosta = true;
+
+if( $poisKaytosta )
+{
+  header('Location: http://kayttajanystavat.fi/etusivu');
+  exit;
+}
+
+$toiminto = stripslashes($_GET['toiminto']);
+
+if($toiminto == "tapahtumat")
+{
+  include "pages/yllapito-tapahtumat";
+}
+elseif($toiminto == "jasenrekisteri")
+{
+  include "pages/yllapito-jasenrekisteri";
+}
+else
+{
+  header('Location: http://kayttajanystavat.fi/etusivu');
+  exit;
+}
+
+?>

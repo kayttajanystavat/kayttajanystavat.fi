@@ -1,0 +1,57 @@
+<?php
+session_start();
+$aktivointikoodi = mysql_real_escape_string(stripslashes(htmlspecialchars($_GET['koodi'])));
+$aktivointikoodi_kokopituus = mb_strlen($koodi);
+$aktivointikoodi_alkuosapituus = $aktivointikoodi_kokopituus - 32;
+
+$aktivointikoodi_loppuosa = substr($aktivointikoodi, -32);
+$aktivointikoodi_alkuosa = substr($aktivointikoodi, 0, $aktivointikoodi_alkuosapituus);
+
+if((preg_match('/^([A-Za-z0-9_.-]+)([a-f0-9]{32})$/',$aktivointikoodi)) AND ($aktivointikoodi_kokopituus < 97))
+{
+  // koodissa on edes jotain järkeä...
+  $sql_tarkistus = "SELECT id, email, rek_pvm, rek_aktivoitu FROM Jasenrekisteri WHERE rek_koodi='$aktivointikoodi' LIMIT 1";
+  $tulos_tarkistus = mysql_query($sql_tarkistus) or die('Tietokantahaku epäonnistui ' . mysql_error());
+  $lkm_tarkistus = mysql_num_rows($tulos_tarkistus);
+  if($lkm_tarkistus > 0)
+  {
+    // löytyi kannasta
+    $rivi_tarkistus = mysql_fetch_row($tulos_tarkistus);
+    $id_tarkistus = $rivi_tarkistus[0];
+    $email_tarkistus = $rivi_tarkistus[1];
+    $rek_pvm_tarkistus = $rivi_tarkistus[2];
+    $rek_aktivoitu_tarkistus = $rivi_tarkistus[3];
+    $rek_ajankohta = strtotime($rek_pvm_tarkistus);
+    $kaksi_viikkoa_sitten = strtotime('-15 days');
+
+    if(($rek_ajankohta > $kaksi_viikkoa_sitten) AND ($rek_aktivoitu_tarkistus == 0))
+    {
+      // aktivoi
+      $sql_aktivointi = "UPDATE Jasenrekisteri SET rek_aktivoitu='1' WHERE id='$id_tarkistus' AND rek_koodi='$aktivointikoodi'";
+      mysql_query($sql_aktivointi) or die("Ongelmia tietojen lisäämisessä tietokantaan." . mysql_error());
+      $_SESSION["vahvista_email_osoite"] = $email_tarkistus;
+      // hae tyypin tiedot kannasta
+      // lähetä tiedot sähköpostitse hallitukselle
+      header('Location: http://kayttajanystavat.fi/vahvista/kiitos');
+      exit;
+    }
+    elseif($rek_aktivoitu_tarkistus == 1)
+    {
+      echo "<p>Tunnus on jo aktivoitu.</p>";
+    }
+    else
+    {
+      echo "<p>Tunnus on vanhentunut.</p>";
+    }
+  }
+  else
+  {
+    echo "<p>Aktivointikoodi on virheellinen.</p>";
+  }
+}
+else
+{
+  // koodissa ei ole järkeä
+  header('Location: http://kayttajanystavat.fi/liity');
+}
+?>

@@ -1,0 +1,151 @@
+<p>Käyttäjän ystävät ry:n järjestämiin tapahtumiin voi tutustua ja ilmoittautua tällä sivulla.</p>
+<?php
+$sql_tulevat = "SELECT id, ajankohta_alk, DATEDIFF(ajankohta_alk, NOW()) AS pvkuluttua, UNIX_TIMESTAMP(ajankohta_alk) AS unixaika, ajankohta_lop, nimi, ingressi, kuvaus, sijainti, sijainti_linkki, vastuuhlo, maksu, max_osallist, ilmo, UNIX_TIMESTAMP(ilmo_alkaa) AS unix_ilmo_alkaa, UNIX_TIMESTAMP(ilmo_loppuu) AS unix_ilmo_loppuu, peruutettu FROM Tapahtumat WHERE DATE(ajankohta_alk) >= DATE(NOW()) ORDER BY ajankohta_alk";
+$result_tulevat = mysql_query($sql_tulevat);
+
+if(mysql_num_rows($result_tulevat) == 0)
+{
+  echo "<p>Tapahtumista tiedotetaan ja niihin voi ilmoittautua tällä sivulla. Juuri tällä hetkellä ei ole tiedossa yhtään tapahtumaa.</p><p>Yhdistyksen aiemmin järjestämiin tapahtumiin voi tutustua <a href=\"/tapahtumat/menneet\">menneet tapahtumat -sivulla</a>.</p>";
+}
+else
+{
+  while($row_tulevat = mysql_fetch_assoc($result_tulevat))
+  {
+    $unixaika = $row_tulevat["unixaika"];
+    $tapahtumaid = $row_tulevat["id"];
+    $tapahtumanimi = $row_tulevat["nimi"];
+    $pvkuluttua = $row_tulevat["pvkuluttua"];
+    if($pvkuluttua == 0) { $kuluttua = "tänään";}
+    elseif($pvkuluttua == 1) { $kuluttua = "huomenna";}
+    elseif($pvkuluttua == 2) { $kuluttua = "ylihuomenna";}
+    else { $kuluttua = "$pvkuluttua päivän kuluttua";}
+    $vkonpaiva_indeksi = date("w", $unixaika);
+    $paivat_fi_lyh = array("Ma", "Ti", "Ke", "To", "Pe", "La", "Su");
+    $paivat_fi_pit = array("Maanantaina", "Tiistaina", "Keskiviikkona", "Torstaina", "Perjantaina", "Lauantaina", "Sunnuntaina");
+    $vkonpaiva_lyh = $paivat_fi_lyh[$vkonpaiva_indeksi - 1];
+    $vkonpaiva_pit = $paivat_fi_pit[$vkonpaiva_indeksi - 1];
+    $lyhytpvm = date("j.n.", $unixaika);
+    $pidempipvm = date("j.n.Y", $unixaika);
+    $klo = date("H.i", $unixaika);
+    $sijainti = $row_tulevat["sijainti"];
+    $sijainti_linkki = $row_tulevat["sijainti_linkki"];
+    $ilmo = $row_tulevat["ilmo"];
+    $unix_ilmo_alkaa = $row_tulevat["unix_ilmo_alkaa"];
+    $unix_ilmo_loppuu = $row_tulevat["unix_ilmo_loppuu"];
+    $maksu = $row_tulevat["maksu"];
+    $vastuuhlo = $row_tulevat["vastuuhlo"];
+    $kuvaus = $row_tulevat["kuvaus"];
+    // nl2br kuvaus
+    $max_osallist = $row_tulevat["max_osallist"];
+    $peruutettu = $row_tulevat["peruutettu"];
+
+    echo "<div class=\"tapahtuma\">";
+    echo "<span id=\"t". $tapahtumaid . "_toggle\">";
+    echo "<h2><a name=\"t" . $tapahtumaid . "\" href=\"#t" . $tapahtumaid . "\">" . $tapahtumanimi . "</a></h2>";
+    echo "<div style=\"margin-left: 20px\"><span class=\"pvm\">$vkonpaiva_pit $lyhytpvm</span>(<i>$kuluttua</i>)</div>";
+    echo "<div style=\"margin: 15px 0px 15px 20px\">" . $row_tulevat["ingressi"] . ". <a href=\"#t$tapahtumaid\">Lue lisää...</a></div>";
+    echo "</span>";
+    echo "<div id=\"t" . $row_tulevat["id"] . "\" class=\"tapahtumateksti\" style=\"display: none;\">";
+    echo "<table>";
+
+    echo "<tr><td class=\"vasen\">Ajankohta</td><td class=\"oikea\">$vkonpaiva_lyh $pidempipvm klo $klo</td></tr>";
+    echo "<tr><td class=\"vasen\">Sijainti</td><td class=\"oikea\"><a href=\"$sijainti_linkki\">$sijainti</a></td></tr>";
+    echo "<tr><td class=\"vasen\">Ilmoittautuminen</td><td class=\"oikea\">";
+    if($ilmo == 0) { echo "Ei ennakkoilmoittautumista"; }
+    else 
+    {  
+      if($unix_ilmo_loppuu < time())
+      {
+        echo "Ilmoittautuminen on päättynyt.";
+      }
+      elseif($unix_ilmo_alkaa > time())
+      {
+        $ilmoalkaa_indeksi = date("w", $unix_ilmo_alkaa);
+        $ilmoalkaa_vkonpaiva = strtolower($paivat_fi_lyh[$ilmoalkaa_indeksi - 1]);
+        $ilmoalkaa_pvm = date("j.n.", $unix_ilmo_alkaa);
+        $ilmoalkaa_klo = date("H.i", $unix_ilmo_alkaa);
+        echo "Ilmoittauminen alkaa $ilmoalkaa_vkonpaiva $ilmoalkaa_pvm klo $ilmoalkaa_klo";
+       }
+      else
+      {
+        $ilmoloppuu_indeksi = date("w", $unix_ilmo_loppuu);
+        $ilmoloppuu_vkonpaiva = $paivat_fi_lyh[$ilmoloppuu_indeksi - 1];
+        $ilmoloppuu_pvm = date("j.n.", $unix_ilmo_loppuu);
+        $ilmoloppuu_klo = date("H.i", $unix_ilmo_loppuu);
+        echo "$ilmoloppuu_vkonpaiva $ilmoloppuu_pvm klo $ilmoloppuu_klo mennessä";
+      }
+    }
+    echo "</td></tr>";
+    echo "<tr><td class=\"vasen\">Hinta</td><td class=\"oikea\">";
+    if(($maksu == "") OR ($maksu == "0")) { echo "Maksuton"; } else { echo "$maksu euroa"; }
+    echo "</td></tr>";
+    if($vastuuhlo != "") { echo "<tr><td class=\"vasen\">Vastuuhenkilö</td><td class=\"oikea\">$vastuuhlo</td></tr>"; }
+    echo "<tr><td class=\"vasen\">Kuvaus</td><td class=\"oikea\">$kuvaus</td></tr>";
+    if(($ilmo != 0) AND ($unix_ilmo_alkaa <= time()))
+    {
+      $sql_osallistujat = "SELECT etunimi, sukunimi FROM Tapahtumailmoittautumiset WHERE tapahtuma_id='$tapahtumaid' AND peruutus_pvm IS NULL ORDER BY ilmo_pvm ASC";
+      $result_osallistujat = mysql_query($sql_osallistujat);
+      $ilmoittautuneita = mysql_num_rows($result_osallistujat);
+      echo "<tr><td class=\"vasen\">Osallistujat</td><td class=\"oikea\">";
+
+      if($ilmoittautuneita == 0)
+      {
+        echo "0 / $max_osallist";
+      }
+      else
+      {
+        $osallistujalaskuri = 0;
+        $osallistujalista = "<ol class=\"osallistujalista\">";
+        while($row_osallistujat = mysql_fetch_assoc($result_osallistujat))
+        {
+          $osallistujalaskuri++;
+          if($osallistujalaskuri > $max_osallist)
+          {
+            $osallistujalista .= "<li style=\"color: #999\">" . $row_osallistujat["etunimi"] . " " . $row_osallistujat["sukunimi"] . "</li>";
+          }
+          else
+          {
+            $osallistujalista .= "<li>" . $row_osallistujat["etunimi"] . " " . $row_osallistujat["sukunimi"] . "</li>";
+          }
+        }
+        $osallistujalista .= "</ol>";
+
+      echo "<a class=\"tooltip tooltip_normaali\" name=\"osallistujat_t$tapahtumaid\" href=\"#osallistujat_t$tapahtumaid\">$ilmoittautuneita / $max_osallist<span class=\"classic\">$osallistujalista</span></a>";
+      if($osallistujalaskuri >= $max_osallist) {echo " (täynnä)"; }
+      }
+      
+      echo "</td></tr>";
+    }
+    echo "<tr><td class=\"vasen\">Suora linkki</td><td class=\"oikea\"><a href=\"/tapahtumat/$tapahtumaid\">kayttajanystavat.fi/tapahtumat/$tapahtumaid</a></td></tr>";
+
+    // näytetään ilmoittautumisnappi, jos ilmoittautuminen vaaditaan ja ilmoittautumisaika on käynnissä
+    if(($ilmo != 0) AND ($unix_ilmo_alkaa <= time()) AND $unix_ilmo_loppuu > time())
+    {
+      echo "<tr><td class=\"vasen\">Ilmoittaudu!</td><td class=\"oikea\">";
+      echo "<form method=\"post\" action=\"http://kayttajanystavat.fi/ilmoittaudu/$tapahtumaid\">";
+      echo "<input type=\"hidden\" name=\"tid\" value=\"$tapahtumaid\" />";
+      if($osallistujalaskuri >= $max_osallist)
+      {
+        echo "<input type=\"submit\" name=\"ilmoittaudunyt\" id=\"laheta\" value=\"Ilmoittaudu jonoon\" tabindex=\"1\" />";
+      }
+      else
+      {
+	    echo "<input type=\"submit\" name=\"ilmoittaudunyt\" id=\"laheta\" value=\"Ilmoittaudu\" tabindex=\"1\" />"; 
+      }
+      echo "</form>";
+      echo "</td></tr>";
+    }
+    echo "</table>";
+    echo "</div>";
+    echo "</div>";
+    echo "<script>";
+    echo "\$('#t" . $row_tulevat["id"] . "_toggle').click(function() {";
+    echo "\$('#t" . $row_tulevat["id"] . "').toggle('fast', function() {";
+    echo "});";
+    echo "});";
+    echo "</script>";
+    unset($osallistujalaskuri);
+  }
+}
+
+?>

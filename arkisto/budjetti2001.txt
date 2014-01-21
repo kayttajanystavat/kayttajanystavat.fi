@@ -1,0 +1,30 @@
+Käyttäjän ystävät
+
+Meno- ja tuloarvio
+
+Tulot:
+
+     Avustukset:
+     TKY                     1000,00
+     TKK:n käytettävyysryhmä 1000,00
+     (opintosaunaa varten)
+     Yritykset               2000,00
+
+     Jäsenmaksut:
+     Jäsenmaksut             1200,00
+     -------------------------------
+     Yhteensä                5200,00
+
+Menot:
+
+     Tapahtumat:
+     Opintosauna             1200,00
+     Työelämäsauna           2000,00
+     Pikkujoulut             1000,00
+
+     Hallinto:
+     Pankki                   100,00
+     Sekalaiset               300,00
+     PRH                      600,00
+     -------------------------------
+     Yhteensä                5200,00

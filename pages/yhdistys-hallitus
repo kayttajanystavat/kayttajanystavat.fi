@@ -1,0 +1,175 @@
+<div style="clear: both">
+<div class="polaroid right">
+ <img src="/images/jani.jpg" alt="Jani" title="Jani" /> <span>Jani</span>
+</div>
+<p><br /><br />Puheenjohtaja <strong>Jani Mäkelä</strong> johtaa yhdistyksen hallituksen työskentelyä ja yhdistyksen toimintaa. Jani järjestää myös ekskursioita mielenkiintoisiin yrityksiin. Aalto-yliopistossa Jani opiskelee tietoverkkotaloutta ja www-teknologioita. Opintonsa Jani saa näillä näkymin päätökseen tämän vuoden aikana.</p>
+</div>
+
+<div style="clear: both;">
+<div class="polaroid left">
+ <img src="/images/anna.jpg" alt="Anna" title="Anna" /> <span>Anna</span>
+</div>
+<p><br />Rahastonhoitaja <strong>Anna Kantosalo</strong> vahtii yhdistyksen pankkitiliä ja hoitaa sponsoriyhteistyötä. Anna opiskelee Aalto Yliopiston käytettävyyskoulussa toista vuotta ja laittaa saatuja oppeja käytäntöön paitsi töissä, myös kotona. Vaikkapa kännykän valinnasta onkin näin ollen tullut vaikeampi tehtävä, kun viivalle pitää asettaa värin lisäksi, niin näppäinten optimaalinen sijoittelu kuin valikkojen loogisuus.</p>
+</div>
+
+<div style="clear: both;">
+<div class="polaroid right">
+ <img src="/images/teijo.jpg" alt="Teijo" title="Teijo" /> <span>Teijo</span>
+</div>
+<p><br /><br />Ensikertalainen sihteeri <strong>Teijo Kelander</strong> pyörittelee muun muassa kokousten pöytäkirjoja, vahtii arkistoja ja avustaa myös vähän kaikessa muussakin. Hän on gradun viimeistelyä vaille valmis tietojärjestelmätieteilijä Jyväskylän yliopistosta. Tällä hetkellä Teijo työskentelee testauksen parissa.</p>
+</div>
+
+<div style="clear: both;">
+<div class="polaroid left">
+ <img src="/images/dmitry.jpg" alt="Dmitry" title="Dmitry" /> <span>Dmitry</span>
+</div>
+<p><br />Harmaana Eminenssinä <strong>Dmitry Poletaev</strong> pitää huolta, että järjestötoiminta menee kaiken sääntöjen mukaisesti ja ohjaa hallituksen toimintaa epäselvissä tilanteissa. Dmitry suorittaa Helsingin yliopistossa kahta tutkintoa - psykologiaa ja tietojenkäsittelytiedettä.</p>
+</div>
+
+<div style="clear: both;">
+<div class="polaroid right">
+ <img src="/images/timo.jpg" alt="Timo" title="Timo" /> <span>Timo</span>
+</div>
+<p><br />Mentorina <strong>Timo Karhu</strong> viettää tämän hallituskauden opastamassa nuorempiaan ja kirittämässä uutta hallitusta entisiäkin parempiin suorituksiin. Oppeja hän parhaillaan etsii Otaniemen suunnalta käyttöliittymäsuunnittelun, käytettävyyden ja työpsykologian aloilta.</p>
+</div>
+
+<div style="clear: both;">
+<div class="polaroid left">
+ <img src="/images/tommi.jpg" alt="Tommi" title="Tommi" /> <span>Tommi</span>
+</div>
+<p><br /><strong>Tommi Saarikangas</strong> on ensimmäisen vuoden hallituslainen, joka hääräilee mielellään kaikenlaisen järjestelyn parissa. Tommi opiskelee Otaniemen Informaatioverkostoilla mm. käyttöliittymäsuunnittelua. </p>
+</div>
+
+<div style="clear: both;">
+<div class="polaroid right">
+ <img src="/images/tuija.png" alt="Tuija" title="Tuija" /> <span>Tuija</span>
+</div>
+<p><br /><strong>Tuija Velinen</strong> on ensimmäistä vuotta hallituksessa ja valmis järjestämään erilaisia tapahtumia yritysvierailuista ja workshopeista alumnitoimintaan. Tuija opiskelee Otaniemen Informaatioverkostoilla ihmisläheisiä tietojärjestelmiä ja hakee lisänäkökulmia käytettävyyteen käytettävyyskoulussa. </p>
+</div>
+
+
+<?php
+// vanhat hallitukset
+
+$nayta = stripslashes($_GET['nayta']);
+
+if ($nayta == "kaikki")
+{
+?>
+<p style="clear: both"><a href="http://www.kayttajanystavat.fi/yhdistys/hallitus">Piilota vanhat...</a></p>
+<a name="hallitukset"></a>
+
+<p>Hallitus 2012<br />
+<div class="sisennys">
+Puheenjohtaja <strong>Timo Karhu</strong><br />
+Rahastonhoitaja <strong>Joanna Bergström-Lehtovirta</strong><br />
+Sihteeri <strong>Jani Mäkelä</strong><br />
+Jäsen <strong>Dmitry Poletaev</strong><br />
+Jäsen <strong>Riku Hanhinen</strong><br />
+Jäsen <strong>Tiia Suomalainen</strong><br />
+Jäsen <strong>Tuomas Husu</strong><br />
+</div></p>
+
+<p>Hallitus 2011<br />
+<div class="sisennys">
+Puheenjohtaja <strong>Tuomas Husu</strong><br />
+Rahastonhoitaja <strong>Joanna Bergström-Lehtovirta</strong><br />
+Sihteeri <strong>Riku Hanhinen</strong><br />
+Jäsen <strong>Anna Törrönen</strong><br />
+Jäsen <strong>Jussi Rämänen</strong><br />
+Jäsen <strong>Tiia Suomalainen</strong><br />
+</div></p>
+
+<p>Hallitus 2010<br />
+<div class="sisennys">
+Puheenjohtaja <strong>Anna Törrönen</strong><br />
+Rahastonhoitaja <strong>Tiia Suomalainen</strong><br />
+Sihteeri <strong>Jussi Rämänen</strong><br />
+Jäsen <strong>Saija Simola</strong><br />
+Jäsen <strong>Sara Ikävalko</strong>
+</div></p>
+
+<p>Hallitus 2009<br />
+<div class="sisennys">
+Puheenjohtaja <strong>Kirsi Tolvanen</strong><br />
+Rahastonhoitaja <strong>Matias Pietilä</strong><br />
+Sihteeri <strong>Satu Raudasoja</strong><br />
+Jäsen <strong>Jari Keränen</strong>
+</div></p>
+
+<p>Hallitus 2008<br />
+<div class="sisennys">
+Puheenjohtaja <strong>Matias Pietilä</strong><br />
+Rahastonhoitaja <strong>Esko Lehtonen</strong><br />
+Sihteeri <strong>Janne Käki</strong>
+</div></p>
+
+<p>Hallitus 2007<br />
+<div class="sisennys">
+Puheenjohtaja <strong>Tuukka Muroke</strong><br />
+Rahastonhoitaja <strong>Antti Lustila</strong><br />
+Sihteeri <strong>Esko Lehtonen</strong><br />
+Jäsen <strong>Matias Pietilä</strong><br />
+Jäsen <strong>Juha Nieminen</strong>
+</div></p>
+
+<p>Hallitus 2006<br />
+<div class="sisennys">
+Puheenjohtaja <strong>Tuukka Muroke</strong><br />
+Varapuheenjohtaja <strong>Paula Löppönen</strong><br />
+Sihteeri <strong>Piritta Winqvist</strong><br />
+Rahastonhoitaja <strong>Antti Lustila</strong><br />
+Jäsen <strong>Eerika Korhonen</strong>
+</div></p>
+
+<p>Hallitus 2005<br />
+<div class="sisennys">
+Puheenjohtaja <strong>Juha Nieminen</strong><br />
+Sihteeri <strong>Antti Lustila</strong><br />
+Rahastonhoitaja <strong>Heini Korpilahti</strong><br />
+Jäsen <strong>Maarit Kivioja</strong>
+</div></p>
+
+<p>Hallitus 2004<br />
+<div class="sisennys">
+Puheenjohtaja <strong>Elina Jormanainen</strong><br />
+Rahastonhoitaja <strong>Heini Korpilahti</strong><br />
+Sihteeri <strong>Roope Rainisto</strong><br />
+Jäsen <strong>Maarit Kivioja</strong><br />
+Jäsen <strong>Juha Nieminen</strong>
+</div></p>
+
+<p>Hallitus 2003<br />
+<div class="sisennys">
+Puheenjohtaja <strong>Reetta Korhonen</strong><br />
+Rahastonhoitaja <strong>Elina Jormanainen</strong><br />
+Sihteeri <strong>Mikko Salminen</strong><br />
+Jäsen <strong>Minna Mylius</strong><br />
+Jäsen <strong>Kristo Kuusela</strong>
+</div></p>
+
+<p>Hallitus 2002<br />
+<div class="sisennys">
+Puheenjohtaja <strong>Juha Huuhtanen</strong><br />
+Rahastonhoitaja <strong>Matti Helin</strong><br />
+Sihteeri <strong>Antti Salovaara</strong><br />
+PR- ja yrityssuhdevastaava <strong>Petteri Mäki</strong>
+</div></p>
+
+<p>Hallitus 2001<br />
+<div class="sisennys">
+Puheenjohtaja <strong>Juha Huuhtanen</strong><br />
+Rahastonhoitaja <strong>Riitta Peltonen</strong><br />
+Sihteeri <strong>Matti Helin</strong><br />
+Tiedottaja <strong>Tero Liikka</strong><br />
+PR- ja yrityssuhdevastaava <strong>Petteri Mäki</strong><br />
+Opintovastaava <strong>Antti Oulasvirta</strong>
+</div></p>
+
+<?php
+}
+else
+{
+  echo "<p style=\"clear: both\"><a href=\"http://www.kayttajanystavat.fi/yhdistys/hallitus/kaikki#hallitukset\">Aiemmat hallitukset...</a></p>";
+}
+?>

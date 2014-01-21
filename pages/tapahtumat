@@ -1,0 +1,21 @@
+<?php
+  session_start();
+  $tid = stripslashes($_GET['tid']);
+
+  if((is_numeric($tid)) AND ($tid > 0) AND ($tid < 65536))
+  {
+    include "pages/tapahtumat-nayta";
+  }
+  elseif($tid == "menneet")
+  {
+    // menneet tapahtumat	
+    $alasivu = "tapahtumat-menneet";
+    include "pages/tapahtumat-menneet";
+  }
+  else
+  {
+    // jos ei pyydetty tiettyä tapahtumatunnusta tai menneitä, näytetään tulevat tapahtumat
+    $alasivu = "tapahtumat-tulevat";
+    include "pages/tapahtumat-tulevat";
+  }
+?>

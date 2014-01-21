@@ -1,0 +1,242 @@
+/*
+  kay-proto css
+*/
+html,body{margin:0;padding:0; background: #f0f0f0; height:101%;}
+* html a:hover { background: transparent; }
+
+body{font: 99% helvetica,arial,verdana;text-align:center}
+
+p{margin:0 10px 10px}
+
+/* div#otsikko{position:relative; white-space: wrap;} */
+div#otsikko #otsikko_ylin{width: 700px; height: 50px;}
+div#pallo{position: relative; left: 350px; height:57px; width: 116px;}
+
+/* div#otsikko #otsikko_ylin #kirjaudu{margin-left: 15px; height: 35px; width: 300px; background-color: #e5e5e5; border-radius: 0px 0px 10px 10px; -moz-border-radius: 0px 0px 10px 10px; -webkit-border-radius: 0px 0px 10px 10px;} */
+div#otsikko #logo{width: 700px; height: 80px;}
+div#otsikko img{padding: 0px; border: 0px; margin: 0px; float: left;}
+div#otsikko #otsikko_alin{width: 700px; height: 35px; padding: 0px 0px 25px 0px;}
+
+div#taustavari{margin: 0 auto; width:900px; background-image:url('http://kayttajanystavat.fi/images/kay-tausta.png');background-repeat:repeat-y;}
+div#taustavari-ala	{margin: 0 auto; width:900px; height: 79px; background-image:url('http://kayttajanystavat.fi/images/kay-tausta-footer.png');background-repeat:repeat-y;}
+
+div#kaikki{text-align:left;}
+div#kaikki{width:700px;margin:0 auto;}
+
+div#jasenpalkki {width: 100%; background-color: #3399cc; padding: 0px; margin: 0px;}
+div#jasenpalkki #jasentiedot {width: 700px; margin: 0 auto; background-color: #3399cc; text-align: left; height: 26px;}
+
+div#jasenpalkki #jasentiedot #jasenmenu ul {margin: 0px; padding: 0px; list-style: none; font-size: 14px;}
+div#jasenpalkki #jasentiedot #jasenmenu ul li{display: block; position: relative; float: right;}
+div#jasenpalkki #jasentiedot #jasenmenu li ul{display: none;}
+div#jasenpalkki #jasentiedot #jasenmenu ul li a {display: block; text-decoration: none; color: #ffffff; border-left: 1px solid #fff; padding: 5px 15px 5px 15px; background: #3399cc; margin-left: 1px; white-space: nowrap;}
+div#jasenpalkki #jasentiedot #jasenmenu ul li a:hover {color: #fff; background: #115F85;}
+div#jasenpalkki #jasentiedot #jasenmenu ul li ul li {border-top: 1px solid #fff;}
+div#jasenpalkki #jasentiedot #jasenmenu li:hover ul {display: block; position: absolute;}
+div#jasenpalkki #jasentiedot #jasenmenu li:hover li {float: none; font-size: 11px;}
+div#jasenpalkki #jasentiedot #jasenmenu li:hover a {background: #3399cc;}
+div#jasenpalkki #jasentiedot #jasenmenu li:hover li a:hover {background: #115F85;}
+div#jasenpalkki #jasentiedot #jasenmenu ul li a.testi {background-color: orange; color: #000;}
+div#jasenpalkki #jasentiedot #jasenmenu ul li a:hover.testi {background-color: #666; color: #fff;}
+
+div#sisalto p{line-height:1.4}
+div#sisalto{float:right;width:500px;padding-bottom: 20px;}
+div#sisalto h1, h2, h3{margin-left: 10px;}
+div#sisalto a{color:#3399cc; text-decoration: underline;}
+div#sisalto a{background:url("http://kayttajanystavat.fi/images/external.png") no-repeat right top;padding-right:13px}
+div#sisalto a:hover{text-decoration: none;}
+/* div#sisalto a:visited{color: #336699; background:url("http://kayttajanystavat.fi/images/external-visited.png") no-repeat right top;padding-right:13px} */
+div#sisalto a[href^="http://kay.ayy.fi"],
+div#sisalto a[href^="mailto:"],
+div#sisalto a[href^="http://www.kayttajanystavat.fi"],
+div#sisalto a[href^="/"],
+div#sisalto a[href^=".."],
+div#sisalto a[href^="#"],
+div#sisalto a[href^="javascript"],
+div#sisalto a[name^="h"],
+div#sisalto a[class^="ankkuri"]{padding-right:0px;background-image:none}
+/* div#sisalto ul{line-height:1.6; list-style: none;margin-left: 0;text-indent: -1em;}
+div#sisalto ul li:before {content: "\00BB \0020";} */
+
+div#sisalto .sisennys {margin: -5px 0px 20px 40px; line-height:1.4}
+
+div#sisalto .login-apu {margin-left: 30px;}
+
+div#sisalto .tooltip_normaali {text-decoration: none; border-bottom: 1px dotted #000; color: #000;}
+div#sisalto .tooltip_valkoinen {text-decoration: none; border-bottom: 1px dotted #fff; color: #fff;}
+
+div#sisalto .polaroid {text-align:center;font-family:"Courier New", Courier, monospace;-moz-box-shadow:0px 2px 15px #222;-webkit-box-shadow:0px 2px 15px #222;box-shadow:0px 2px 15px #222}
+div#sisalto .polaroid.left{padding:15px 10px 20px 10px;width:160px;float:left;margin:5px 25px 30px 0;-ms-transform:rotate(-0.5deg);-moz-transform:rotate(-0.5deg);-o-transform:rotate(-0.5deg);-webkit-transform:rotate(-0.5deg);transform:rotate(-0.5deg)}
+div#sisalto .polaroid.right{padding:15px 10px 20px 10px;width:160px;float:right;margin:5px 0 30px 25px;-ms-transform:rotate(1deg);-moz-transform:rotate(1deg);-o-transform:rotate(1deg);-webkit-transform:rotate(1deg);transform:rotate(1deg)}
+div#sisalto .polaroid.iso {padding:15px 10px 10px 10px;width:460px; margin: 20px 0px 25px 0px;}
+
+div#sisalto #uutiset {float: right; font-size: 14px; padding: 15px; margin: 10px 0px 10px 10px; background-color: #3399cc; color: #fff; width: 220px; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; -moz-box-shadow: 3px 3px 4px #ccc; -webkit-box-shadow: 3px 3px 4px #ccc; box-shadow: 3px 3px 4px #ccc;}
+div#sisalto #uutiset a {color: #fff;}
+div#sisalto #uutiset img {margin: 0px 0px 5px 0px;}
+div#sisalto #uutiset ul, li{padding: 0px; margin: 0px;}
+div#sisalto #uutiset li {list-style-type: none; margin-bottom: 1.2em; border-bottom: 1px dashed #b1defe;}
+div#sisalto #uutiset .aikaleima {font-size: 12px; color: #d5edfe; font-style: italic; padding-bottom: 10px;}
+
+div#sisalto #ilmolomake {width: 85%;}
+div#sisalto #ilmolomake input[type=text]{padding: 3px; width: 95%; font: bold 105% helvetica,arial,verdana; color: #000; border: 1px solid #000; background-color: #f0f0f0;}
+div#sisalto #ilmolomake input[type=text]:focus{background-color: #fff;}
+div#sisalto #ilmolomake .lomake-elementti{margin-bottom: 20px;}
+div#sisalto #ilmolomake .lomake-elementti-virhe{margin-bottom: 20px; padding: 5px; color: #fff; background-color: red; border-right: 1px solid #069; border-bottom: 1px solid #069;}
+div#sisalto #ilmolomake .valirivi{font-size: 1px;}
+div#sisalto #ilmolomake .tooltip_hack{color: #fff;}
+
+div#sisalto #jasenhakemus {margin: 15px 0px 20px 10px; padding: 10px; width: 85%; border: 1px solid #ccc; background-color: #3399cc; color: #fff; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;}
+div#sisalto #jasenhakemus table{background-color: #3399cc; border: 0px; width: 100%}
+div#sisalto #jasenhakemus input[type=text]{padding: 3px; width: 95%; font: bold 105% helvetica,arial,verdana; color: #000; border: 1px solid #fff; background-color: #f0f0f0;}
+div#sisalto #jasenhakemus input[type=text]:focus{background-color: #fff;}
+div#sisalto #jasenhakemus input[type=password]{padding: 3px; width: 95%; font: bold 105% courier,helvetica,arial,verdana; color: #000; border: 1px solid #fff; background-color: #f0f0f0;}
+div#sisalto #jasenhakemus input[type=password]:focus{background-color: #fff;}
+div#sisalto #jasenhakemus input[type=checkbox]{background-color: #f0f0f0; border: 1px solid #fff;}
+div#sisalto #jasenhakemus input[type=submit]{background-color: #f0f0f0; border: 3px solid #fff; font: bold 105% helvetica,arial,verdana; color: #3399cc; height: 2em; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+div#sisalto #jasenhakemus input[type=submit]:hover{background-color: #fff; border: 3px solid #fff; -moz-box-shadow: 3px 3px 4px #666; -webkit-box-shadow: 3px 3px 4px #666; box-shadow: 3px 3px 4px #666;}
+div#sisalto #jasenhakemus textarea{padding: 3px; width: 95%; height: 5em; font: bold 105% helvetica,arial,verdana; color: #000; border: 1px solid #fff; background-color: #f0f0f0;}
+div#sisalto #jasenhakemus textarea:focus{background-color: #fff;}
+div#sisalto #jasenhakemus .vasen-sarake{text-align: right; vertical-align: text-top;}
+div#sisalto #jasenhakemus .vaadittu-kentta{width: 0.5em; font-size: 150%; vertical-align: text-top;}
+div#sisalto #jasenhakemus .lomake-elementti{width: 15em;}
+div#sisalto #jasenhakemus .lomake-elementti-virhe{width: 15em; background-color: red; border-right: 1px solid #069; border-bottom: 1px solid #069;}
+div#sisalto #jasenhakemus .valirivi{font-size: 1px;}
+div#sisalto #jasenhakemus .tooltip_hack{color: #fff;}
+.ansa{display: none;}
+#latauskuvake {padding-left: 15px; vertical-align: middle; display: none;}
+
+.ui-autocomplete {
+		max-height: 130px;
+		overflow-y: auto;
+		/* prevent horizontal scrollbar */
+		overflow-x: hidden;
+		/* add padding to account for vertical scrollbar */
+		padding-right: 20px;
+		text-align: left;
+	}
+
+/* ie6 hack */
+* html .ui-autocomplete {
+	height: 130px;
+}
+
+div#sisalto .tapahtuma {margin: 15px 0px 20px 10px; padding: 8px; width: 95%; border: 3px solid #3399cc; background-color: #3399cc; color: #fff; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; -moz-box-shadow: 3px 3px 4px #ccc; -webkit-box-shadow: 3px 3px 4px #ccc; box-shadow: 3px 3px 4px #ccc;}
+div#sisalto .tapahtuma:hover {}
+div#sisalto .tapahtuma a {color: #fff; text-decoration: none; border-bottom: 1px dashed #fff;}
+div#sisalto .tapahtuma a:hover {border-bottom: 0px;}
+div#sisalto .tapahtuma h2 {position: relative; left: 10px;}
+div#sisalto .tapahtuma h2 a {color: #fff; text-decoration: none; border-bottom: 1px dashed #fff;}
+div#sisalto .tapahtuma h2 a:hover {border-bottom: 0px solid #fff;}
+div#sisalto .tapahtumateksti {display:none; padding: 15px; background-color: #fff; color: #000; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;}
+div#sisalto .tapahtumateksti a {color: #3399cc; text-decoration: underline;}
+div#sisalto .tapahtumateksti a:hover{text-decoration: none;}
+div#sisalto .tapahtumateksti table{width: 100%;}
+div#sisalto .tapahtumateksti ol.osallistujalista{margin: 0px 0px 0px 20px; padding: 0px;}
+div#sisalto .tapahtumateksti table td{vertical-align: text-top;}
+div#sisalto .tapahtumateksti table td.oikea{border-left: 1px dotted #ccc; border-bottom: 1px dotted #ccc; padding: 5px 0px 5px 10px;}
+div#sisalto .tapahtumateksti table td.vasen{padding: 5px 10px 5px 0px; border-bottom: 1px dotted #ccc;}
+div#sisalto .tapahtumateksti input[type=submit] {margin: 10px 0px 5px 0px; background-color: #3399cc; border: 3px solid #3399cc; font: bold 105% helvetica,arial,verdana; color: #fff; height: 2em; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+div#sisalto .tapahtumateksti input[type=submit]:hover {-moz-box-shadow: 3px 3px 4px #ccc; -webkit-box-shadow: 3px 3px 4px #ccc; box-shadow: 3px 3px 4px #ccc;}
+div#sisalto .tapahtuma .pvm {margin-right: 7px; background-color: #444; padding: 5px; /* -ms-transform:rotate(-6deg);-moz-transform:rotate(-6deg);-o-transform:rotate(-6deg);-webkit-transform:rotate(-6deg);transform:rotate(-6deg) */}
+
+div#sisalto #kirjautumis-ltk {margin: 15px 0px 20px 10px; padding: 8px; width: 85%; border: 1px solid #ccc; background-color: #3399cc; color: #fff; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;}
+div#sisalto #kirjautumis-ltk table{background-color: #3399cc; border: 0px; width: 100%}
+div#sisalto #kirjautumis-ltk input[type=text]{padding: 3px; width: 95%; font: bold 105% helvetica,arial,verdana; color: #000; border: 1px solid #fff; background-color: #f0f0f0;}
+div#sisalto #kirjautumis-ltk input[type=text]:focus{background-color: #fff;}
+div#sisalto #kirjautumis-ltk input[type=password]{padding: 3px; width: 95%; font: bold 105% courier,helvetica,arial,verdana; color: #000; border: 1px solid #fff; background-color: #f0f0f0;}
+div#sisalto #kirjautumis-ltk input[type=password]:focus{background-color: #fff;}
+div#sisalto #kirjautumis-ltk input[type=submit]{background-color: #f0f0f0; border: 3px solid #fff; font: bold 105% helvetica,arial,verdana; color: #3399cc; height: 2em; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+div#sisalto #kirjautumis-ltk input[type=submit]:hover{background-color: #fff; border: 3px solid #fff; -moz-box-shadow: 3px 3px 4px #666; -webkit-box-shadow: 3px 3px 4px #666; box-shadow: 3px 3px 4px #666;}
+div#sisalto .virhe {background-color: red; padding: 5px;}
+
+div#sisalto #arkisto table{border: 0px dashed #3399cc; border-top: 0px; border-collapse: collapse; margin: 10px 0px 25px 10px; width: 95%;}
+div#sisalto #arkisto td{border-left: 1px dashed #cccccc;padding-right: 7px;padding-left: 7px; vertical-align: top;}
+div#sisalto #arkisto .oik{text-align: right; border-left: 0px;}
+div#sisalto #arkisto th{border-left: 1px dashed #7cbdde; padding-right: 7px;padding-left: 7px;text-align: left;color: white;background-color: #3399cc;}
+div#sisalto #arkisto tr{line-height: 1.5;}
+div#sisalto #arkisto tr:nth-of-type(odd){background-color:#ffffff;}
+div#sisalto #arkisto tr:nth-of-type(odd){background-color:#f0f0f0;}
+/* div#sisalto #arkisto tr.parillinen{background-color: #F0F0F0;}
+div#sisalto #arkisto tr.pariton{background-color: #FFFFFF;} */
+
+div#valikko{float:left;width:200px}
+div#valikko li{line-height:1.75;}
+div#valikko a.valittu{background-color: #39c; color: #fff;font-weight: bold}
+div#valikko a{color: #000; text-decoration: none; padding: 6px; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+div#valikko a:hover{background-color:#3399cc; color: #fff; padding:6px; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+
+div#valikko .alavalikko li{line-height:1.5; list-style-type: disc; color: #3399cc;}
+div#valikko .alavalikko a.valittu{background-color: #999; color: #fff;font-weight: bold}
+div#valikko .alavalikko a{color: #000; text-decoration: none; padding: 4px; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+div#valikko .alavalikko a:hover{background-color:#999; color: #fff; padding:4px; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+
+/* div#omavalikko{background:#FF8539} */
+div#omavalikko{float:left;clear:left;width:200px; color: #ccc;}
+div#omavalikko li{line-height:1.75;}
+
+div#alatunniste{border-top: 1px dashed #39c; text-align: center;color: #ccc;}
+div#alatunniste{clear:both;width:100%;}
+div#alatunniste p{margin:0;padding:5px 10px}
+div#alatunniste a{display:inline;padding:0;color: #C6D5FD}
+
+#dialog_link {padding: .4em 1em .4em 20px;text-decoration: none;position: relative;}
+#dialog_link span.ui-icon {margin: 0 5px 0 0;position: absolute;left: .2em;top: 50%;margin-top: -8px;}
+ul#icons {margin: 0; padding: 0;}
+ul#icons li {margin: 2px; position: relative; padding: 4px 0; cursor: pointer; float: left;  list-style: none;}
+ul#icons span.ui-icon {float: left; margin: 0 4px;}
+
+.listaus{line-height:1.3;}
+
+.tooltip {
+    outline: none;
+	cursor: help; text-decoration: none;
+	position: relative;
+}
+
+.tooltip a {color: #000;}
+
+.tooltip_normaali {border-bottom: 1px dotted #000; color: #000;}
+.tooltip_valkoinen {border-bottom: 1px dotted #fff; color: #fff;}
+
+.tooltip span {
+	margin-left: -999em;
+	position: absolute;
+}
+.tooltip:hover span {
+	border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; 
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+	position: absolute; left: 1em; top: 2em; z-index: 99;
+	margin-left: 0; width: 250px;
+}
+.tooltip:hover img {
+	border: 0; margin: -10px 0 0 -55px;
+	float: left; position: absolute;
+}
+.tooltip:hover em {
+	/* font-family: Candara, Tahoma, Geneva, sans-serif; font-size: 1.2em; font-weight: bold; */
+	display: block; padding: 0.2em 0 0.6em 0;
+}
+.classic { padding: 0.8em 1em; }
+.classic {background: #dcecfa; border: 1px solid #3399cc; text-align: left; color: #000;}
+
+label.checkbox_checked {
+	background: #3399cc url(http://kayttajanystavat.fi/images/kay-luukku-ruksittu.png) no-repeat;	
+	display: block;
+	padding-left: 30px;
+}
+label.checkbox_unchecked  {
+	background: #3399cc url(http://kayttajanystavat.fi/images/kay-luukku-tyhja.png) no-repeat;	
+	display: block;
+	padding-left: 30px;
+}
+
+/* 
+label:hover{
+	color: #efefef;
+}
+*/
+
+.crirHidden {
+	position: absolute;
+	left: -1000px;
+}

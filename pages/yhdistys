@@ -1,0 +1,11 @@
+<?php
+if(preg_match('/^(esittely|hallitus|saannot|arkisto)$/',$_GET['yid']) )
+{
+        $alasivu = "yhdistys-" . stripslashes($_GET['yid']);
+}
+else
+{
+        $alasivu = "yhdistys-esittely";
+}
+include "pages/$alasivu";
+?>

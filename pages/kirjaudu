@@ -1,0 +1,92 @@
+<?php
+session_start();
+$naytaLogin = true;
+$virhe = false;
+$ohjaa = $_GET["ohjaa"];
+if (ISSET($_POST["kirjaudu"]))
+{
+  $email = mysql_real_escape_string(stripslashes(htmlspecialchars($_POST['email'])));
+  $salasana = mysql_real_escape_string(stripslashes(htmlspecialchars($_POST['salasana'])));
+  $salasana_kantaan = sha1($salasana . "cHej!C+CHu*rat+u");
+  $ohjaa = mysql_real_escape_string(stripslashes(htmlspecialchars($_POST['ohjaa'])));
+  if(mb_strlen($email) == 0)
+  {
+    // älä tee mitään... 
+    $virhe = true;
+  }
+  else
+  {
+    // tarkista tunnarit
+    $sql_tunnus = "SELECT id FROM Jasenrekisteri WHERE email='$email' AND sala='$salasana_kantaan' AND poistettu='0' AND rek_aktivoitu='1' LIMIT 1";
+    $result_tunnus = mysql_query($sql_tunnus);
+    $count_tunnus = mysql_num_rows($result_tunnus);
+    // jos tunnarit täsmäävät
+    if($count_tunnus == 1)
+    {
+      $rivi_tunnus = mysql_fetch_row($result_tunnus);
+      $id_tunnus = $rivi_tunnus[0];
+      $ip_osoite = $_SERVER['REMOTE_ADDR'];
+      $sessioavain = md5($ip_osoite);
+      $naytaLogin = false;
+
+      // kirjataan muistiin
+      $sql_lastlogin = "UPDATE Jasenrekisteri SET viimeksi_kirj=NOW(), sessioavain='$sessioavain' WHERE id='$id_tunnus'";
+      $result_lastlogin = mysql_query($sql_lastlogin);
+
+      // sessio
+      $_SESSION["tunnus"] = $id_tunnus;
+      $_SESSION["sessioavain"] = $sessioavain;
+      $_SESSION["ekakerta"] = true;
+      if($ohjaa == "tapahtumat")
+      {
+	   header('Location: http://kayttajanystavat.fi/tapahtumat');
+	   exit;	
+      }
+      else
+      {
+	   header('Location: http://kayttajanystavat.fi/');
+	   exit;
+	 }
+    }
+    // jos tunnarit eivät täsmänneet
+    else
+    {
+      $virhe = true;
+    }
+  }
+}
+
+if($naytaLogin == true)
+{
+?>
+<div id="kirjautumis-ltk">
+<h2>Sisäänkirjautuminen</h2>
+<?php 
+  if($virhe == true)
+  {
+    echo "<p class=\"virhe\">Sisäänkirjautuminen ei onnistunut!</p>";
+  }
+?>
+<p><strong>Huom!</strong> Sisäänkirjautuminen ei ole tällä hetkellä käytössä.</p>
+<form method="post" action="/kirjaudu">
+<table cellpadding="7">
+  <tr>
+    <td>Sähköpostiosoite</td><td><input type="text" name="email" id="autofokus" maxlength="64" tabindex="1"/></td>
+  </tr><tr>
+    <td>Salasana</td><td><input type="password" name="salasana" maxlength="64" tabindex="2"/></td>
+  </tr><tr>
+    <td></td><td><input type="submit" name="kirjaudu" id="laheta" value="Kirjaudu" tabindex="3"/><span id="spinner"><img id="latauskuvake" src="/images/ajax-loader-lomake.gif" alt="Hetkinen..."/></span></td>
+  </tr>
+<?php
+if($ohjaa == "tapahtumat")
+{
+  echo "<input type=\"hidden\" name=\"ohjaa\" value=\"tapahtumat\" />";
+}
+?>
+</table>
+</form>
+</div>
+<p class="login-apu"><a href="#">Unohtunut salasana?</a></p>
+<?php
+}
+?>

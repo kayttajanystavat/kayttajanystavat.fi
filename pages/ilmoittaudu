@@ -1,0 +1,293 @@
+<?php
+$ilmotid = mysql_real_escape_string($_GET['tid']);
+$naytaLomake = true;
+$virheita = false;
+$iposoite = mysql_real_escape_string($_SERVER["REMOTE_ADDR"]);
+
+// jos tid ei ole numero
+if((ctype_digit($ilmotid) == false) OR (mb_strlen($ilmotid) > 5))
+{
+  header('Location: http://kayttajanystavat.fi/tapahtumat');
+  exit;
+}
+
+// jos ilmolomake on lähetetty
+if (ISSET($_POST["ilmoittaudu"]))
+{
+  // sijoitetaan lomakkeen muuttujat saman nimisiin muuttujiin tämmöisen taulukkovirityksen avulla
+  // eli saadaan aikaseksi esim. $etunimi-muuttuja, jonka arvo on etunimi-kenttään syötetty arvo
+  $lomakeMuuttujat = array("etunimi", "sukunimi", "email", "puhelin", "ruokavalio", "captcha", "ansa", "taynna");
+  for($i=0; $i<count($lomakeMuuttujat); $i++)
+  {
+    // eli sijoitus
+    $muuttujanNimi = $lomakeMuuttujat[$i];
+
+    // ja sanitointi
+    $$muuttujanNimi = mysql_real_escape_string(stripslashes(htmlspecialchars($_POST[$lomakeMuuttujat[$i]])));
+
+    // pituuksien laskeskelu ja muuttujiin sijoittaminen
+    // eli saadaan aikaseksi esim. $etunimi_pituus-muuttuja, jonka arvo on merkkijonon pituus (kokonaisluku)
+    $muuttujanNimiPituus = $lomakeMuuttujat[$i] . "_pituus";
+    $$muuttujanNimiPituus = mb_strlen($$muuttujanNimi);
+  }
+  
+  // etunimi
+  if($etunimi_pituus < 2) 
+  {
+    $virheita = true;
+    $etunimi_virhe = "Etunimi on pakollinen kenttä.";
+  }
+  if($etunimi_pituus > 32)
+  {
+    $virheita = true;
+    $etunimi_virhe = "Etunimi on liian pitkä ($etunimi_pituus merkkiä). Maksimipituus on 32 merkkiä.";
+  }
+
+  // sukunimi
+  if($sukunimi_pituus < 2) 
+  {
+    $virheita = true;
+    $sukunimi_virhe = "Sukunimi on pakollinen kenttä.";
+  }
+  if($sukunimi_pituus > 32)
+  {
+    $virheita = true;
+    $sukunimi_virhe = "Sukunimi on liian pitkä ($etunimi_pituus merkkiä). Maksimipituus on 32 merkkiä.";
+  }
+
+  // email
+  $email_alkuosa = explode("@", $email);
+  $email_alkuosa_pituus = mb_strlen($email_alkuosa[0]);
+  if (!ereg("^([_a-z0-9-]+)(\.[_a-z0-9-]+)*@([a-z0-9-]+)(\.[a-z0-9-]+)*(\.[a-z]{2,4})$",$email))
+  {
+    $virheita = true;
+    $email_virhe = "Sähköpostiosoite ei ole kelvollinen. Osoitteen tulee olla toimiva ja muotoa <i>tunnus@osoite.fi</i>. ";
+  }
+  else
+  {
+    if(($email_alkuosa_pituus > 64) OR ($email_pituus > 256))
+    {
+      $virheita = true;
+      $email_virhe = "Sähköpostiosoite on liian pitkä.";
+    }
+  }
+ 
+  // puhelin
+  if($puhelin_pituus > 32)
+  {
+    $virheita = true;
+    $puhelin_virhe = "Puhelinnumero on liian pitkä ($puhelin_pituus merkkiä). Maksimipituus on 32 merkkiä.";
+  }
+
+  // ruokavalio
+  if($ruokavalio_pituus > 160)
+  {
+    $virheita = true;
+    $puhelin_virhe = "Teksti on liian pitkä ($ruokavalio_pituus merkkiä). Maksimipituus on 160 merkkiä.";
+  }
+
+  if($ansa_pituus > 0)
+  {
+    $virheita = true;
+    header('Location: http://kayttajanystavat.fi/etusivu');
+    exit;  
+  }
+
+  include("/var/www/home/kay/captcha/securimage.php");
+  $img = new Securimage();
+  $valid = $img->check($_POST['code']);
+
+  if($valid != true)
+  {
+    $virheita = true;
+    $captcha_virhe = "Sana ei täsmää. Yritä uudelleen.";
+  }
+
+  if($virheita == false)
+  {
+    $naytaLomake = false;
+    $sql_ilmo = "INSERT INTO Tapahtumailmoittautumiset VALUES(NULL, '$ilmotid', '$sukunimi', '$etunimi', '$email', '$puhelin', '$ruokavalio', NOW(), NULL, '$iposoite')";
+    $ilmo_result = mysql_query($sql_ilmo);
+    if (!$ilmo_result) {
+      die("Tietokantaan kirjoittaminen epäonnistui.");
+    }
+    else
+    {
+	 if($taynna == '1')
+	 {
+	   $_SESSION['kiitos_tapahtuma_taynna'] = '1';
+	 }
+	 $_SESSION['kiitos_tapahtuma_id'] = $ilmotid;
+	 $osallistujan_nimi = $etunimi . " " . $sukunimi;
+	 $_SESSION['kiitos_tapahtuma_osallistuja'] = $osallistujan_nimi;
+	 header('Location: http://kayttajanystavat.fi/tapahtumat/kiitos');
+	 exit;
+    }
+  }
+}
+else
+{
+  // tarkistetaan, löytyykö kannasta pyydetyllä id:llä tapahtumaa
+  //$sql_tarkistus = "SELECT id FROM Tapahtumat WHERE id='$ilmotid' AND ilmo='1' AND ilmo_alkaa < NOW() AND ilmo_loppuu > DATE_ADD(NOW(),INTERVAL 1 HOUR) AND peruutettu='0'";
+  // TARKISTA DATE_ADD, ALKUPERÄINEN LAKKAA TOIMIMASTA TUNTIA _ENNEN_ ILMON SULKEUTUMISTA
+  $sql_tarkistus = "SELECT id FROM Tapahtumat WHERE id='$ilmotid' AND ilmo='1' AND ilmo_alkaa < NOW() AND ilmo_loppuu > NOW() AND peruutettu='0'";
+
+  $result_tarkistus = mysql_query($sql_tarkistus);
+  // jos ei löytynyt (tai löytyi useampia)
+  if(mysql_num_rows($result_tarkistus) != 1)
+  {
+    // ei näytetä lomaketta, tulostetaan virhe
+    $naytaLomake = false;
+    header('Location: http://kayttajanystavat.fi/tapahtumat');
+    exit;
+  }
+}
+
+
+// jos löytyi tasan yksi
+if ($naytaLomake == true)
+{
+  // haetaan kannasta tapahtuman tiedot
+  $sql_tapahtuma = "SELECT id, ajankohta_alk, DATEDIFF(ajankohta_alk, NOW()) AS pvkuluttua, UNIX_TIMESTAMP(ajankohta_alk) AS unixaika, ajankohta_lop, nimi, ingressi, kuvaus, sijainti, sijainti_linkki, vastuuhlo, maksu, max_osallist, UNIX_TIMESTAMP(ilmo_alkaa) AS unix_ilmo_alkaa, UNIX_TIMESTAMP(ilmo_loppuu) AS unix_ilmo_loppuu FROM Tapahtumat WHERE id='$ilmotid'";
+  $result_tapahtuma = mysql_query($sql_tapahtuma);
+
+  // sijoitetaan tietokantahaun tulokset muuttujiin
+  $rivi_tapahtuma = mysql_fetch_row($result_tapahtuma);
+  $unixaika = $rivi_tapahtuma[3];
+  $tapahtumaid = $rivi_tapahtuma[0];
+  $tapahtumanimi = $rivi_tapahtuma[5];
+  $pvkuluttua = $rivi_tapahtuma[2];
+  if($pvkuluttua == 0) { $kuluttua = "tänään";}
+  elseif($pvkuluttua == 1) { $kuluttua = "huomenna";}
+  elseif($pvkuluttua == 2) { $kuluttua = "ylihuomenna";}
+  else { $kuluttua = "$pvkuluttua päivän kuluttua";}
+  $vkonpaiva_indeksi = date("w", $unixaika);
+  $paivat_fi_lyh = array("Ma", "Ti", "Ke", "To", "Pe", "La", "Su");
+  $paivat_fi_pit = array("Maanantaina", "Tiistaina", "Keskiviikkona", "Torstaina", "Perjantaina", "Lauantaina", "Sunnuntaina");
+  $vkonpaiva_lyh = $paivat_fi_lyh[$vkonpaiva_indeksi - 1];
+  $vkonpaiva_pit = $paivat_fi_pit[$vkonpaiva_indeksi - 1];
+  $lyhytpvm = date("j.n.", $unixaika);
+  $pidempipvm = date("j.n.Y", $unixaika);
+  $klo = date("H.i", $unixaika);   
+  $sijainti = $rivi_tapahtuma[8];
+  $sijainti_linkki = $rivi_tapahtuma[9];
+  $unix_ilmo_alkaa = $rivi_tapahtuma[13];
+  $unix_ilmo_loppuu = $rivi_tapahtuma[14];
+  $maksu = $rivi_tapahtuma[11];
+  $vastuuhlo = $rivi_tapahtuma[10];
+  $kuvaus = $rivi_tapahtuma[7];
+  // nl2br kuvaus
+  $max_osallist = $rivi_tapahtuma[12];
+  $ingressi = $rivi_tapahtuma[6];
+
+  $ilmoloppuu_indeksi = date("w", $unix_ilmo_loppuu);
+  $ilmoloppuu_vkonpaiva = $paivat_fi_lyh[$ilmoloppuu_indeksi - 1];
+  $ilmoloppuu_pvm = date("j.n.", $unix_ilmo_loppuu);
+  $ilmoloppuu_klo = date("H.i", $unix_ilmo_loppuu);
+?>
+
+<div class="tapahtuma">
+
+<h2><?php echo $tapahtumanimi; ?></h2>
+
+<div style="margin-left: 20px"><span class="pvm"><?php echo "$vkonpaiva_pit $lyhytpvm"; ?></span>(<i><?php echo $kuluttua; ?></i>)</div>
+<div style="margin: 15px 0px 15px 20px"><?php echo $ingressi; ?></div>
+
+<div class="tapahtumateksti" style="display: block;">
+<table>
+<tr><td class="vasen">Ajankohta</td><td class="oikea"><?php echo "$vkonpaiva_lyh $pidempipvm klo $klo"; ?></td></tr>
+<tr><td class="vasen">Sijainti</td><td class="oikea"><a href="<?php echo $sijainti_linkki; ?>"><?php echo $sijainti; ?></a></td></tr>
+<tr><td class="vasen">Ilmoittautuminen</td><td class="oikea"><?php echo "$ilmoloppuu_vkonpaiva $ilmoloppuu_pvm klo $ilmoloppuu_klo mennessä"; ?></td></tr>
+<tr><td class="vasen">Hinta</td><td class="oikea"><?php if(($maksu == "") OR ($maksu == "0")) { echo "Maksuton"; } else { echo "$maksu euroa"; } ?></td></tr>
+<?php if($vastuuhlo != "") { echo "<tr><td class=\"vasen\">Vastuuhenkilö</td><td class=\"oikea\">$vastuuhlo</td></tr>"; }?>
+<tr><td class="vasen">Kuvaus</td><td class="oikea"><?php echo $kuvaus; ?></td></tr>
+<?php
+$sql_osallistujat = "SELECT etunimi, sukunimi FROM Tapahtumailmoittautumiset WHERE tapahtuma_id='$ilmotid' AND peruutus_pvm IS NULL ORDER BY ilmo_pvm ASC";
+$result_osallistujat = mysql_query($sql_osallistujat);
+$ilmoittautuneita = mysql_num_rows($result_osallistujat);
+echo "<tr><td class=\"vasen\">Osallistujat</td><td class=\"oikea\">";
+if($ilmoittautuneita == 0)
+{
+  echo "0 / $max_osallist";
+}
+else
+{
+  $osallistujalaskuri = 0;
+  $osallistujalista = "<ol class=\"osallistujalista\">";
+  while($row_osallistujat = mysql_fetch_assoc($result_osallistujat))
+  {
+    $osallistujalaskuri++;
+    if($osallistujalaskuri > $max_osallist)
+    {
+      $osallistujalista .= "<li style=\"color: #999\">" . $row_osallistujat["etunimi"] . " " . $row_osallistujat["sukunimi"] . "</li>";
+    }
+    else
+    {
+      $osallistujalista .= "<li>" . $row_osallistujat["etunimi"] . " " . $row_osallistujat["sukunimi"] . "</li>";
+    }
+  }
+  $osallistujalista .= "</ol>";
+echo "<a class=\"tooltip tooltip_normaali\" name=\"osallistujat_t$tapahtumaid\" href=\"#osallistujat_t$tapahtumaid\">$ilmoittautuneita / $max_osallist<span class=\"classic\">$osallistujalista</span></a>";
+if($osallistujalaskuri >= $max_osallist) {echo " (täynnä)"; }
+}
+echo "</td></tr>";
+?>
+<tr><td class="vasen">Suora linkki</td><td class="oikea"><a href="/tapahtumat/<?php echo $ilmotid; ?>">kayttajanystavat.fi/tapahtumat/<?php echo $ilmotid; ?></a></td></tr>
+<tr><td class="vasen">Ilmoittaudu!</td><td class="oikea">
+<div id="ilmolomake">
+<form method="post" action="http://kayttajanystavat.fi/ilmoittaudu/<?php echo $ilmotid; ?>">
+Ole ystävällinen ja täytä ainakin tähdellä (*) merkityt kentät.<br /><br />
+
+<input type="hidden" name="tid" id="tid" value="<?php echo $ilmotid; ?>" />
+
+<div class="lomake-elementti<?php if(($virheita == true) AND ($etunimi_virhe != "")) echo "-virhe"; ?>">
+<label for="etunimi"><strong>Etunimi</strong></label> *<br /><?php if(($virheita == true) AND ($etunimi_virhe != "")) echo "$etunimi_virhe <br />"; ?>
+<input type="text" name="etunimi" id="etunimi" maxlength="32" tabindex="1" <?php if($virheita == true) echo "value=\"$etunimi\" "; ?>/>
+</div>
+
+<div class="lomake-elementti<?php if(($virheita == true) AND ISSET($sukunimi_virhe)) echo "-virhe"; ?>">
+<label for="sukunimi"><strong>Sukunimi</strong></label> *<br /><?php if(($virheita == true) AND ($sukunimi_virhe != "")) echo "$sukunimi_virhe <br />"; ?>
+<input type="text" name="sukunimi" id="sukunimi" maxlength="32" tabindex="2" <?php if($virheita == true) echo "value=\"$sukunimi\" "; ?>/>
+</div>
+
+<div class="lomake-elementti<?php if(($virheita == true) AND ISSET($email_virhe)) echo "-virhe"; ?>">
+<label for="email"><strong>Sähköposti</strong></label> *<br /><?php if(($virheita == true) AND ($email_virhe != "")) echo "$email_virhe <br />"; ?>
+<input type="text" name="email" id="email" maxlength="64" tabindex="3" <?php if($virheita == true) echo "value=\"$email\" "; ?>/>
+</div>
+
+<div class="lomake-elementti<?php if(($virheita == true) AND ISSET($puhelin_virhe)) echo "-virhe"; ?>">
+<label for="puhelin"><strong>Puhelinnumero</strong></label><br /><?php if(($virheita == true) AND ($puhelin_virhe != "")) echo "$puhelin_virhe <br />"; ?>
+<input type="text" name="puhelin" id="puhelin" maxlength="32" tabindex="4" <?php if($virheita == true) echo "value=\"$puhelin\" "; ?>/>
+</div>
+
+<div class="lomake-elementti<?php if(($virheita == true) AND ISSET($ruokavalio_virhe)) echo "-virhe"; ?>">
+<label for="ruokavalio"><strong>Erikoisruokavalio</strong></label><br /><?php if(($virheita == true) AND ($ruokavalio_virhe != "")) echo "$ruokavalio_virhe <br />"; ?>
+<input type="text" name="ruokavalio" id="ruokavalio" maxlength="160" tabindex="5" <?php if($virheita == true) echo "value=\"$ruokavalio\" "; ?>/>
+</div>
+
+<div class="lomake-elementti<?php if(($virheita == true) AND ISSET($captcha_virhe)) echo "-virhe"; ?>">
+<label for="captcha"><strong>Väärinkäytön esto</strong></label> *<br />
+<?php 
+  if(($virheita == true) AND ($captcha_virhe != "")) 
+  {
+    echo "$captcha_virhe <br />";
+  } 
+  else
+  {
+    echo "Kirjoita kenttään alla oleva sana. Tällä estetään sivuston automaattinen väärinkäyttö.<br />";
+  }
+?>
+<img id="siimage" align="left" style="padding-right: 5px; border: 0" src="/images/captcha.png?sid=<?php echo md5(time()) ?>" />
+<input type="text" name="code" id="code" maxlength="12" tabindex="6" /><br /><br />
+</div>
+
+<div class="ansa">
+  <input type="text" name="ansa" id="ansa" maxlength="32" />
+</div>
+<input type="hidden" name="taynna" id="taynna" value="<?php if($osallistujalaskuri >= $max_osallist) {echo "1";} else {echo "0";}?>" />
+<input type="submit" name="ilmoittaudu" id="laheta" value="<?php if($osallistujalaskuri >= $max_osallist) {echo "Ilmoittaudu jonoon";} else {echo "Ilmoittaudu";}?>" tabindex="7" /></form></div></td></tr>
+</table>
+</div>
+
+</div>
+<?php } ?>
