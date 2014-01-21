@@ -2,7 +2,7 @@
     // twitter-skripti, hakee etusivun laatikkoon @kayttajanystava -tilin kolme uusinta tweettiä
 
     $username = "kayttajanystava";
-    $feed = '/home/kay/www-data/twitterxml/twitter.xml';
+    $feed = './twitterxml/twitter.xml';
     $tweets = file_get_contents($feed);
 		$tweets = str_replace("&", "&", $tweets);	
 		$tweets = str_replace("<", "<", $tweets);
