@@ -8,7 +8,7 @@ Osoite tavoittaa kaikki <a href="/yhdistys/hallitus">hallituksen</a> jäsenet
 <div class="sisennys">
 <strong>#kay @ IRCnet</strong><br />
 <?php 
-  $botfile = '/home/kay/www-data/ircusers/kay-users.txt';
+  $botfile = './ircusers/kay-users.txt';
   $ircusers = file_get_contents($botfile);
   $ircuser = explode(" ", $ircusers);
   natcasesort($ircuser);
