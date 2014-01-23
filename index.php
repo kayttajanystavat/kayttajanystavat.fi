@@ -44,7 +44,6 @@ $sivun_title = array("etusivu" => "- Etusivu",
     <title>Käyttäjän ystävät <?php echo $sivun_title[$sivu]; ?></title>
     <meta name="description" content="Käyttäjän ystävät ry on käytettävyysopiskelijoiden ja muiden alasta kiinnostuneiden poikkitieteellinen yhdistys." /> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.4" />
     <link type="text/css" rel="stylesheet" href="/css/tyyli.css" media="screen" />
     <link type="text/css" rel="stylesheet" href="/css/cupertino/jquery-ui-1.8.6.custom.css" />
     <script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
