@@ -19,11 +19,7 @@ $dbname = "kay";
 ?>
 ```
 
-Copy the twitter XML file and IRC user list file from production:
-
-```
-machine kayttajanystavat.fi user $ scp kay@otax.ayy.fi:/home/kay/www-data/twitterxml/twitter.xml twitterxml/
-```
+Copy the IRC user list file from production:
 
 ```
 machine kayttajanystavat.fi user $ scp kay@otax.ayy.fi:/home/kay/www-data/ircusers/kay-users.txt ircusers/
