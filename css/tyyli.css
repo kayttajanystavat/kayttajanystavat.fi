@@ -66,8 +66,8 @@ div#sisalto .tooltip_normaali {text-decoration: none; border-bottom: 1px dotted 
 div#sisalto .tooltip_valkoinen {text-decoration: none; border-bottom: 1px dotted #fff; color: #fff;}
 
 div#sisalto .polaroid {text-align:center;font-family:"Courier New", Courier, monospace;-moz-box-shadow:0px 2px 15px #222;-webkit-box-shadow:0px 2px 15px #222;box-shadow:0px 2px 15px #222}
-div#sisalto .polaroid.left{padding:15px 10px 20px 10px;width:160px;float:left;margin:5px 25px 30px 0;-ms-transform:rotate(-0.5deg);-moz-transform:rotate(-0.5deg);-o-transform:rotate(-0.5deg);-webkit-transform:rotate(-0.5deg);transform:rotate(-0.5deg)}
-div#sisalto .polaroid.right{padding:15px 10px 20px 10px;width:160px;float:right;margin:5px 0 30px 25px;-ms-transform:rotate(1deg);-moz-transform:rotate(1deg);-o-transform:rotate(1deg);-webkit-transform:rotate(1deg);transform:rotate(1deg)}
+div#sisalto .polaroid.left{padding:15px 10px 20px 10px;width:200px;float:left;margin:5px 25px 30px 0;-ms-transform:rotate(-0.5deg);-moz-transform:rotate(-0.5deg);-o-transform:rotate(-0.5deg);-webkit-transform:rotate(-0.5deg);transform:rotate(-0.5deg)}
+div#sisalto .polaroid.right{padding:15px 10px 20px 10px;width:200px;float:right;margin:5px 0 30px 25px;-ms-transform:rotate(1deg);-moz-transform:rotate(1deg);-o-transform:rotate(1deg);-webkit-transform:rotate(1deg);transform:rotate(1deg)}
 div#sisalto .polaroid.iso {padding:15px 10px 10px 10px;width:460px; margin: 20px 0px 25px 0px;}
 
 div#sisalto #uutiset {float: right; font-size: 14px; padding: 15px; margin: 10px 0px 10px 10px; background-color: #3399cc; color: #fff; width: 220px; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; -moz-box-shadow: 3px 3px 4px #ccc; -webkit-box-shadow: 3px 3px 4px #ccc; box-shadow: 3px 3px 4px #ccc;}
