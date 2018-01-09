@@ -34,7 +34,7 @@ if (ISSET($_POST["laheta"]))
   // validoidaan syötteet:
 
   // etunimi
-  if($etunimi_pituus < 2) 
+  if($etunimi_pituus < 2)
   {
     $virheita = true;
     $etunimi_virhe = "Etunimi on pakollinen kenttä.";
@@ -46,7 +46,7 @@ if (ISSET($_POST["laheta"]))
   }
 
   // sukunimi
-  if($sukunimi_pituus < 2) 
+  if($sukunimi_pituus < 2)
   {
     $virheita = true;
     $sukunimi_virhe = "Sukunimi on pakollinen kenttä.";
@@ -97,14 +97,14 @@ if (ISSET($_POST["laheta"]))
 	     // eli tunnari on, mutta se on joko alle 2 viikkoa vanha ja/tai on jo aktivoitu
 	     $virheita = true;
 	     $email_virhe = "Sähköpostiosoite on jo käytössä.";
-	     // TODO: kirjoita tähän hyvä ohje kuinka salasanan voi resetoida	
+	     // TODO: kirjoita tähän hyvä ohje kuinka salasanan voi resetoida
 	   }
       }
     }
   }
 
   // kotikunta
-  if($kotikunta_pituus < 2) 
+  if($kotikunta_pituus < 2)
   {
     $virheita = true;
     $kotikunta_virhe = "Kotikunta on pakollinen kenttä.";
@@ -133,14 +133,14 @@ if (ISSET($_POST["laheta"]))
   {
     $virheita = true;
     header('Location: http://kayttajanystavat.fi/etusivu');
-    exit;  
+    exit;
   }
 
   if($virheita == false)
   {
     $naytaLomake = false;
     // generoidaan aktivointikoodi
-    $aktivointikoodi = $email_alkuosa[0] . md5(uniqid($email, true)); 
+    $aktivointikoodi = $email_alkuosa[0] . md5(uniqid($email, true));
     // kirjoita kantaan
     // $salasana_kantaan = sha1($salasana . "cHej!C+CHu*rat+u");
     if($updatemoodi == true)
@@ -189,18 +189,18 @@ if (ISSET($_POST["laheta"]))
       $sposti .= "\nSähköpostiosoite: $email";
       $sposti .= "\nKotikunta: $kotikunta";
       if($puhelin != "") { $sposti .= "\nPuhelinnumero: $puhelin"; }
-      if(($jasen_ayy == "1") OR ($jasen_hyy == "1")) 
-      { 
+      if(($jasen_ayy == "1") OR ($jasen_hyy == "1"))
+      {
 	   $sposti .= "\nJäsenyys:";
 	   if($jasen_ayy == "1") { $sposti .= " AYY"; }
-	   if(($jasen_ayy == "1") AND ($jasen_hyy == "1")) { $sposti .= " ja"; } 
+	   if(($jasen_ayy == "1") AND ($jasen_hyy == "1")) { $sposti .= " ja"; }
 	   if($jasen_hyy == "1") { $sposti .= " HYY"; }
 	 }
       if($lisatietoja != "") { $sposti .= "\nLisätietoja: $lisatietoja"; }
 
       $sposti_encoded = urlencode($sposti);
-      $sposti_encoded = str_replace('+','%20',$sposti_encoded); 
-  
+      $sposti_encoded = str_replace('+','%20',$sposti_encoded);
+
       echo "<p>Voi pahus, vahvistuspyynnön lähettämisessä sähköpostitse oli ongelmia.</p>";
       echo "<p>Pahoittelut teknisten ongelmien aiheuttamasta vaivasta. Lähettäisittekö <a href=\"mailto:hallitus@kayttajanystavat.fi?Subject=Liityn%20jäseneksi&Body=$sposti_encoded\">hakemuksenne tiedot hallitukselle sähköpostitse</a>.</p>";
     }
@@ -211,8 +211,10 @@ if ($naytaLomake == true)
 {
 ?>
 
-<p>Yhdistyksen jäseniksi ovat tervetulleita kaikki käytettävyydestä ja käytettävyysopinnoista kiinnostuneet. 
-Vuonna 2014 yhdistys ei peri jäsenmaksua. Jäseneksi voi liittyä oheisen lomakkeen täyttämällä.</p>
+<p>Yhdistyksen jäseniksi ovat tervetulleita kaikki käytettävyydestä ja käytettävyysopinnoista kiinnostuneet.
+Jäseneksi voi liittyä oheisen lomakkeen täyttämällä.</p>
+
+<p><b>Yhdistys ei peri jäsenmaksua.</b> Tiedotamme mahdollisista muutoksista.</p>
 
 <div id="jasenhakemus">
 <h2>Jäsenhakemus</h2>
@@ -259,15 +261,15 @@ Vuonna 2014 yhdistys ei peri jäsenmaksua. Jäseneksi voi liittyä oheisen lomak
     <td></td>
   </tr>
   <tr>
-    <td class="vasen-sarake"><a class="tooltip tooltip_valkoinen" href="#">Jäsenyys<span class="classic"><p>AYY = Aalto-yliopiston ylioppilaskunta, HYY = Helsingin yliopiston ylioppilaskunta.</p></span></a></td>
+    <td class="vasen-sarake">Jäsenyys</td>
     <td class="vaadittu-kentta">&nbsp;</td>
     <td class="lomake-elementti">
       <input name="jasen_ayy" id="jasen_ayy" type="checkbox" value="1" class="crirHiddenJS" tabindex="7" <?php if(($virheita == true) AND ($jasen_ayy == true)) echo "checked=\"checked\" "; ?>/>
-      <label for="jasen_ayy">AYY</label><br />
+      <label for="jasen_ayy">Aalto-yliopiston ylioppilaskunta</label><br />
       <input name="jasen_hyy" id="jasen_hyy" type="checkbox" value="1" class="crirHiddenJS" tabindex="8" <?php if(($virheita == true) AND ($jasen_hyy == true)) echo "checked=\"checked\" "; ?>/>
-      <label for="jasen_hyy">HYY</label><br />
+      <label for="jasen_hyy">Helsingin yliopiston ylioppilaskunta</label><br />
 	<input name="jasen_myy" id="jasen_myy" type="checkbox" value="1" class="crirHiddenJS" tabindex="9" <?php if(($virheita == true) AND ($jasen_myy == true)) echo "checked=\"checked\" "; ?>/>
-      <label for="jasen_myy">Jokin muu ylioppilaskunta</label>
+      <label for="jasen_myy">Muu ylioppilas- tai opiskelijakunta</label>
     </td>
   </tr>
   <tr>
@@ -292,4 +294,4 @@ Vuonna 2014 yhdistys ei peri jäsenmaksua. Jäseneksi voi liittyä oheisen lomak
 <p>Henkilötietolain edellyttämä <a href="http://kayttajanystavat.fi/rekisteriseloste">rekisteriseloste</a>.</p>
 <?php
 }
-?>	
+?>
