@@ -7,7 +7,7 @@ Osoite tavoittaa kaikki <a href="/yhdistys/hallitus">hallituksen</a> jäsenet
 <p>IRC-kanava
 <div class="sisennys">
 <strong>#kay @ IRCnet</strong><br />
-<?php 
+<?php
   $botfile = './ircusers/kay-users.txt';
   $ircusers = file_get_contents($botfile);
   $ircuser = explode(" ", $ircusers);
@@ -17,7 +17,7 @@ Osoite tavoittaa kaikki <a href="/yhdistys/hallitus">hallituksen</a> jäsenet
 
   // näitä ei toistaiseksi käytetä mihinkään,
   // näillä voisi tarkistaa, että käyttäjälistaus on kyllin uusi
-  // ja tulostaa nickit vain tuolloin  
+  // ja tulostaa nickit vain tuolloin
   $log_year = substr($aikaleima, 0, -8);
   $log_month = substr($aikaleima, 4, -6);
   $log_day = substr($aikaleima, 6, -4);
@@ -28,7 +28,7 @@ Osoite tavoittaa kaikki <a href="/yhdistys/hallitus">hallituksen</a> jäsenet
   $tuloste = "Kanavalla ovat tällä hetkellä käyttäjät ";
   $rundi = 1;
   foreach ($ircuser as $nick) {
-    if($rundi == $lkm) 
+    if($rundi == $lkm)
     {
       $tuloste .= " ja <i>$nick</i>.";
     }
@@ -55,21 +55,20 @@ Osoite tavoittaa kaikki <a href="/yhdistys/hallitus">hallituksen</a> jäsenet
 </p>
 <p>Sosiaalinen media
 <div class="sisennys">
-<img src="/images/ikoni-facebook.png" alt="Facebook-ikoni"/> <a href="https://www.facebook.com/groups/4819169666/"><strong>Facebook</strong>-ryhmä</a><br />
+<img src="/images/ikoni-facebook.png" alt="Facebook-ikoni"/> <a href="https://www.facebook.com/groups/kayttajanystavat/"><strong>Facebook</strong>-ryhmä</a><br />
 <img src="/images/ikoni-linkedin.png" alt="LinkedIn-ikoni"/> <a href="http://www.linkedin.com/groups?gid=4095106"><strong>LinkedIn</strong>-ryhmä</a><br />
 <img src="/images/ikoni-twitter.png" alt="Twitter-ikoni"/> <a href="http://twitter.com/kayttajanystava"><strong>Twitter</strong>-tili</a>
 </div>
 </p>
 
-<p>Pankkiyhteys
+<p>Yhdistysrekisterin rekisterinumero
 <div class="sisennys">
-Ålandsbanken <strong>660100-1184431</strong><br />
-IBAN: <strong>FI86 6601 0001 1844 31</strong><br />
-BIC: <strong>AABAFI22</strong>
+<strong>183.750</strong>
 </div>
 </p>
+
 <p>Y-tunnus
 <div class="sisennys">
-<strong>1741700-5</strong> (<a href="http://www.ytj.fi/yritystiedot.aspx?yavain=1721367&kielikoodi=1&tarkiste=AEF849A8AA40D12F8FCA8D74D38460C3C8DE8746&path=1547">YTJ</a>)
+<strong>1741700-5</strong>
 </div>
 </p>
