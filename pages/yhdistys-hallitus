@@ -1,77 +1,44 @@
-<div style="clear: both">
-<div class="polaroid right">
- <img src="/images/hallitus-2015/aarne.jpg" alt="" /> <span>Aarne</span>
-</div>
-<p><br>
-	<strong>Aarne Leinonen</strong> auttaa ja tukee muita hallituslaisia puheenjohtajana. Ensi vuodeksi hän visioi Käyttäjän ystävien jäsenmäärän kasvattamista ja monipuolistamista. Toimintaa ja yhteistyötä muiden opiskelijajärjestöjen kanssa on määrä lisätä. Itse hän opiskelee Aallon Informaatioverkostoilla.<br>
-</p>
-</div>
-<br><br><br>
+<p>Hallitus 2018<br />
+<div class="sisennys">
+Puheenjohtaja <strong>Akseli Nurmio</strong><br />
+Sihteeri <strong>Fanny Holmström</strong><br />
+Rahastonhoitaja <strong>Arttu Laitala</strong><br />
+Jäsen <strong>Katriina Kallioinen</strong><br />
+Jäsen <strong>Iida Kiviranta</strong><br />
+Jäsen <strong>Ukko Kamula</strong><br />
+Jäsen <strong>Timo Lehtonen</strong><br />
+</div></p>
 
-<div style="clear: both;">
-<div class="polaroid left">
- <img src="/images/hallitus-2015/emma.jpg" alt="" /> <span>Emma</span>
-</div>
-<p>
-  Sihteeri <strong>Emma Kataja</strong> on viidennen vuoden digitaalisen viestinnän opiskelija Metropolia Ammattikorkeakoulusta ja samalla mahdollisesti yhdistyksen ensimmäinen AMK-taustainen hallituslainen. Emma saa isoimmat kiksit uusiin ihmisiin tutustumisesta, yhdistystoiminnasta ja maailman parantamisesta yksi huono käyttöliittymä kerrallaan. <br>
-</p>
-</div>
-<br><br>
-<div style="clear: both">
-<div class="polaroid right">
- <img src="/images/hallitus-2015/perttu.jpg" alt="" /> <span>Perttu</span>
-</div>
-<p>
-	<strong>Perttu Lähteenlahti</strong> toimii yhdistyksen rahastonhoitaja. Hän on toisen vuoden kognitiotieteen opiskelija Helsingin yliopistolla sekä ensimmäisen vuoden käytettävyyskoululainen. Koska Hän ei selvästikään saanut tarpeekseen yhdistysten rahastonhoitamisesta viime vuonna, päätti hän jatkaa sitä vielä Käyttäjien ystävissäkin. Hän vetää vauhdikasta rintauintia käytettävyyden vesistöissä esimerkiksi tutkimusavustajana Aallon UI-tutkimusryhmässä.
-</p>
-</div>
-<br>
-<div style="clear: both;">
-<div class="polaroid left">
- <img src="/images/hallitus-2015/juho.jpg" alt="" /> <span>Juho</span>
-</div>
-<p>
-	<strong>Juho Kilpikoski</strong> tuo humanistista näkökulmaa hallitukseen: hän opiskelee pääaineenaan yleistä kielitiedettä Helsingin yliopistossa ja sivuaineenaan käytettävyyskoulun tarjoamia kursseja. Hän onkin erityisen kiinnostunut siitä, miten kielitiede ja -teknologia voivat osaltaan tukea käytettävämpien tietojärjestelmien rakentamista.
-</p>
-</div>
-<br><br>
-<div style="clear: both">
-<div class="polaroid right">
- <img src="/images/hallitus-2015/valeria.jpg" alt="" /> <span>Valeria</span>
-</div>
-<p><br>
-	<strong>Valeria Verkhovskaia</strong> on neljännen vuoden kognitiotieteen opiskelija Helsingin yliopiston puolelta ja ensimmäisen vuoden käytettävyyskoululainen. Käyttäjän ystävät on hänelle suhteellisen uusi tuttavuus, mutta kaikenlaista opiskelijajärjestöhääräilyä ja tapahtumien järkkäilyä on tullut harrastettua aiemminkin. Valeriasta olisikin hienoa lisätä tietoisuutta KäYstä ja jatkaa matalan kynnyksen tapahtumien linjaa.
-</p>
-</div>
-<br>
-<div style="clear: both;">
-<div class="polaroid left">
- <img src="/images/hallitus-2015/emil.jpg" alt="" /> <span>Emil</span>
-</div>
-<p><br>
-	<strong>Emil Virkki</strong> on kuudennen vuoden informaatioverkostojen opiskelija. Emil on yksi KäYn tulevien nettisivujen uudistajista ja nyt sakkokierroksella hallituksessa. Vapaa-ajallaan hän häröilee opiskelijatoiminnassa ja partiossa sekä nauttii koodaamisesta. 
-</p>
-</div>
+<p>Hallitus 2017<br />
+<div class="sisennys">
+Puheenjohtaja <strong>Susanna Ronkainen</strong><br />
+Sihteeri <strong>Katriina Kallioinen</strong><br />
+Rahastonhoitaja <strong>Akseli Nurmio</strong><br />
+Jäsen <strong>Jesse Ukkonen</strong><br />
+Jäsen <strong>Emil Virkki</strong><br />
+Jäsen <strong>Nina Lukin</strong><br />
+</div></p>
 
-<div style="clear: both">
-<div class="polaroid right">
- <img src="/images/hallitus-2015/tommi.jpg" alt="" /> <span>Tommi</span>
-</div>
-<p><br>
-	<strong>Tommi Simell</strong> on toista vuotta hallituksessa ja tykkää järkkäillä ja hääräillä monenlaisissa hommissa. Tommi opiskelee Informaatioverkostoilla Ihmisläheisiä tietojärjestelmiä ja toivoo että käyttäjien ystävät tulisivat tutuksi myös nuoremmille opiskelijoille.
-</p>
-</div>
+<p>Hallitus 2016<br />
+<div class="sisennys">
+Puheenjohtaja <strong>Valtteri Willström</strong><br />
+<strong>Emil Virkki</strong><br />
+<strong>Jesse Ukkonen</strong><br />
+<strong>Perttu Lähteenlahti</strong><br />
+<strong>Aarne Leinonen</strong><br />
+<strong>Heidi Tuomi-Nikula</strong><br />
+</div></p>
 
-<?php
-// vanhat hallitukset
-
-$nayta = stripslashes($_GET['nayta']);
-
-if ($nayta == "kaikki")
-{
-?>
-<p style="clear: both"><a href="http://www.kayttajanystavat.fi/yhdistys/hallitus">Piilota vanhat...</a></p>
-<a name="hallitukset"></a>
+<p>Hallitus 2015<br />
+<div class="sisennys">
+Puheenjohtaja <strong>Aarne Leinonen</strong><br />
+Sihteeri <strong>Emma Kataja</strong><br />
+Rahastonhoitaja <strong>Perttu Lähteenlahti</strong><br />
+Jäsen <strong>Juho Kilpikoski</strong><br />
+Jäsen <strong>Valeria Verkhovskaia</strong><br />
+Jäsen <strong>Emil Virkki</strong><br />
+Jäsen <strong>Tommi Simell</strong><br />
+</div></p>
 
 <p>Hallitus 2014<br />
 <div class="sisennys">
@@ -201,11 +168,3 @@ Tiedottaja <strong>Tero Liikka</strong><br />
 PR- ja yrityssuhdevastaava <strong>Petteri Mäki</strong><br />
 Opintovastaava <strong>Antti Oulasvirta</strong>
 </div></p>
-
-<?php
-}
-else
-{
-  echo "<p style=\"clear: both\"><a href=\"http://www.kayttajanystavat.fi/yhdistys/hallitus/kaikki#hallitukset\">Aiemmat hallitukset...</a></p>";
-}
-?>
