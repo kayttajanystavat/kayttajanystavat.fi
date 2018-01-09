@@ -1,4 +1,4 @@
-<p>Käyttäjän ystävät ry on vuonna 2001 perustettu käytettävyysopiskelijoiden poikkitieteellinen yhdistys. Yhdistys kokoaa yhteen samanhenkisiä, käytettävyydestä kiinnostuneita ihmisiä. Yhdistyksen jäsenistöön kuuluu etupäässä <a href="http://www.aalto.fi/">Aalto-yliopiston</a> ja <a href="http://www.helsinki.fi/yliopisto">Helsingin yliopiston</a> opiskelijoita sekä jo valmistuneita käytettävyysalan osaajia. Mukaan voi liittyä kuka tahansa käytettävyydestä kiinnostunut!</p>
+<p>Käyttäjän ystävät ry on vuonna 2001 perustettu käytettävyysopiskelijoiden poikkitieteellinen yhdistys. Yhdistys kokoaa yhteen samanhenkisiä, käytettävyydestä kiinnostuneita ihmisiä. Yhdistyksen jäsenistöön kuuluu etupäässä <a href="http://www.aalto.fi/">Aalto-yliopiston</a>, <a href="http://www.helsinki.fi/yliopisto">Helsingin yliopiston</a> ja <a href="http://www.metropolia.fi/">Metropolia Ammattikorkeakoulun</a> opiskelijoita sekä jo valmistuneita käytettävyysalan osaajia. Mukaan voi liittyä kuka tahansa käytettävyydestä kiinnostunut!</p>
 
 <?php
 // korvaa tämä jollain responsive slider -virityksellä
@@ -31,8 +31,8 @@ $kuvateksti = array("Reaktor, lokakuu 2011","Etnoteam, marraskuu 2011","Suunto, 
 
 <p>Yhdistys tekee yhteistyötä yritysten, <a href="http://www.sigchi.fi/">SIGCHI Finlandin</a> sekä yliopistojen ainejärjestöjen kanssa pyrkimyksenään järjestää yhä monimuotoisempaa toimintaa mm. yhteistapahtumien muodossa.</p>
 
-<!-- 
-- Käytettävyyskoulu 
+<!--
+- Käytettävyyskoulu
 - vuosijuhlat
 - sääntömääräiset kokoukset
 - sähköpostilista: työpaikat, tapahtumat
