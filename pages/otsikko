@@ -1,28 +1,8 @@
 <div id="otsikko_ylin">
-<?php
-// tämän voi varmaan siirtää sinne jäsenpalkkiin?
-// if($onKirjautunut == true)
-// {
-  // tällä siis haettaisiin käyttäjätunnari yläpalkkiin -- ei käytössä
-  // $sql_tiedot = "SELECT email FROM Jasenrekisteri WHERE id='$tunnus'";
-  // $tulos_tiedot = mysql_query($sql_tiedot);
-  // $rivi_tiedot = mysql_fetch_row($tulos_tiedot);
-  // $testitunnus = $rivi_tiedot[0];
-  // tämä pitää vielä näyttääkin...
-// }
-
-if($onKirjautunut == false)
-{
-  echo "<div id=\"pallo\">";
-  echo "<a href=\"/kirjaudu\"><img src=\"/images/kay-logo-yla-sisaan-rc2.png\" alt=\"Kirjaudu sisään\" title=\"Kirjaudu sisään\" /></a>";
-  echo "</div>";
-  // echo "<a href=\"/ulos\"><img src=\"/images/kay-logo-yla-ulos-rc2.png\" alt=\"Kirjaudu ulos\" title=\"Kirjaudu ulos\" /></a>";
-}
-?>
 </div>
 <div id="logo">
-  <a href="/etusivu">
-    <img src="/images/kay-logo-rc.png" alt="Käyttäjän ystävät!" title="K&auml;ytt&auml;j&auml;n yst&auml;v&auml;t!" />
+  <a href="/">
+    <img src="/images/kay-logo-rc.png" alt="Käyttäjän ystävät!" />
   </a>
 </div>
 
