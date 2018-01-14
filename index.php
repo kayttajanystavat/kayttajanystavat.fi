@@ -23,26 +23,26 @@ if(preg_match('/^(etusivu|yhdistys|tapahtumat|liity|yhteys|403|404|500|aktivoi|k
 } else {
   $sivu = "etusivu";
 }
-$sivun_title = array("etusivu" => "- Etusivu",
-	                "yhdistys" => "- Yhdistys",
-                     "tapahtumat" => "- Tapahtumat",
-                     "liity" => "- Liity jäseneksi!",
-                     "yhteys" => "- Yhteystiedot",
-                     "403" => "- Pääsy kielletty!",
-                     "404" => "- Sivua ei löytynyt",
-                     "500" => "- Virhe",
-                     "aktivoi" => "- Tunnuksen aktivointi",
-                     "kiitos" => "- Kiitos!",
-                     "kirjaudu" => "- Kirjaudu sisään",
-                     "yllapito" => "- Ylläpito",
-                     "ilmoittaudu" => "- Ilmoittaudu");
+$sivun_title = array("etusivu" => "",
+                     "yhdistys" => " - Yhdistys",
+                     "tapahtumat" => " - Tapahtumat",
+                     "liity" => " - Liity jäseneksi!",
+                     "yhteys" => " - Yhteystiedot",
+                     "403" => " - Pääsy kielletty!",
+                     "404" => " - Sivua ei löytynyt",
+                     "500" => " - Virhe",
+                     "aktivoi" => " - Tunnuksen aktivointi",
+                     "kiitos" => " - Kiitos!",
+                     "kirjaudu" => " - Kirjaudu sisään",
+                     "yllapito" => " - Ylläpito",
+                     "ilmoittaudu" => " - Ilmoittaudu");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Käyttäjän ystävät <?php echo $sivun_title[$sivu]; ?></title>
-    <meta name="description" content="Käyttäjän ystävät ry on käytettävyysopiskelijoiden ja muiden alasta kiinnostuneiden poikkitieteellinen yhdistys." /> 
+    <title>Käyttäjän ystävät<?php echo $sivun_title[$sivu]; ?></title>
+    <meta name="description" content="Käyttäjän ystävät ry on käytettävyysopiskelijoiden ja muiden alasta kiinnostuneiden poikkitieteellinen yhdistys." />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link type="text/css" rel="stylesheet" href="/css/tyyli.css" media="screen" />
     <link type="text/css" rel="stylesheet" href="/css/cupertino/jquery-ui-1.8.6.custom.css" />
