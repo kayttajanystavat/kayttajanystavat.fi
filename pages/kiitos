@@ -14,7 +14,6 @@ elseif(($tyyppi == "vahvista") AND ISSET($_SESSION['vahvista_email_osoite']))
 {
   $vahvista_email_osoite = $_SESSION['vahvista_email_osoite'];
   echo "<p>Kiitos hakemuksen vahvistamisesta ja tervetuloa Käyttäjän ystävät ry:n jäseneksi! Sähköpostiosoite <strong>$vahvista_email_osoite</strong> lisätään yhdistyksen sähköpostilistalle.</p>";
-  echo "<p>Yhdistyksen toiminnasta, kuten järjestettävistä tapahtumista ja yhdistyksen kokouksista tiedotetaan näillä verkkosivuilla sekä sähköpostilistalla.</p>";
   unset($_SESSION['vahvista_email_osoite']);
   // HAE KANNASTA TIEDOT EMAILIN PERUSTEELLA
   // EMAIL HALLITUS@KAYTTAJANYSTAVAT.FI
