@@ -39,12 +39,12 @@ if (ISSET($_POST["kirjaudu"]))
       $_SESSION["ekakerta"] = true;
       if($ohjaa == "tapahtumat")
       {
-	   header('Location: http://kayttajanystavat.fi/tapahtumat');
+	   header('Location: https://kayttajanystavat.fi/tapahtumat');
 	   exit;	
       }
       else
       {
-	   header('Location: http://kayttajanystavat.fi/');
+	   header('Location: https://kayttajanystavat.fi/');
 	   exit;
 	 }
     }

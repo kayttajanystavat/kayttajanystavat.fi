@@ -7,7 +7,7 @@ $iposoite = mysql_real_escape_string($_SERVER["REMOTE_ADDR"]);
 // jos tid ei ole numero
 if((ctype_digit($ilmotid) == false) OR (mb_strlen($ilmotid) > 5))
 {
-  header('Location: http://kayttajanystavat.fi/tapahtumat');
+  header('Location: https://kayttajanystavat.fi/tapahtumat');
   exit;
 }
 
@@ -89,7 +89,7 @@ if (ISSET($_POST["ilmoittaudu"]))
   if($ansa_pituus > 0)
   {
     $virheita = true;
-    header('Location: http://kayttajanystavat.fi/etusivu');
+    header('Location: https://kayttajanystavat.fi/');
     exit;  
   }
 
@@ -120,7 +120,7 @@ if (ISSET($_POST["ilmoittaudu"]))
 	 $_SESSION['kiitos_tapahtuma_id'] = $ilmotid;
 	 $osallistujan_nimi = $etunimi . " " . $sukunimi;
 	 $_SESSION['kiitos_tapahtuma_osallistuja'] = $osallistujan_nimi;
-	 header('Location: http://kayttajanystavat.fi/tapahtumat/kiitos');
+	 header('Location: https://kayttajanystavat.fi/tapahtumat/kiitos');
 	 exit;
     }
   }
@@ -138,7 +138,7 @@ else
   {
     // ei näytetä lomaketta, tulostetaan virhe
     $naytaLomake = false;
-    header('Location: http://kayttajanystavat.fi/tapahtumat');
+    header('Location: https://kayttajanystavat.fi/tapahtumat');
     exit;
   }
 }

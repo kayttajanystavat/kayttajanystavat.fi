@@ -17,8 +17,8 @@ div#otsikko #logo{width: 700px; height: 80px;}
 div#otsikko img{padding: 0px; border: 0px; margin: 0px; float: left;}
 div#otsikko #otsikko_alin{width: 700px; height: 35px; padding: 0px 0px 25px 0px;}
 
-div#taustavari{margin: 0 auto; width:900px; background-image:url('http://kayttajanystavat.fi/images/kay-tausta.png');background-repeat:repeat-y;}
-div#taustavari-ala	{margin: 0 auto; width:900px; height: 79px; background-image:url('http://kayttajanystavat.fi/images/kay-tausta-footer.png');background-repeat:repeat-y;}
+div#taustavari{margin: 0 auto; width:900px; background-image:url('/images/kay-tausta.png');background-repeat:repeat-y;}
+div#taustavari-ala	{margin: 0 auto; width:900px; height: 79px; background-image:url('/images/kay-tausta-footer.png');background-repeat:repeat-y;}
 
 div#kaikki{text-align:left;}
 div#kaikki{width:700px;margin:0 auto;}
@@ -43,12 +43,12 @@ div#sisalto p{line-height:1.4}
 div#sisalto{float:right;width:500px;padding-bottom: 20px;}
 div#sisalto h1, h2, h3{margin-left: 10px;}
 div#sisalto a{color:#3399cc; text-decoration: underline;}
-div#sisalto a{background:url("http://kayttajanystavat.fi/images/external.png") no-repeat right top;padding-right:13px}
+div#sisalto a{background:url("/images/external.png") no-repeat right top;padding-right:13px}
 div#sisalto a:hover{text-decoration: none;}
-/* div#sisalto a:visited{color: #336699; background:url("http://kayttajanystavat.fi/images/external-visited.png") no-repeat right top;padding-right:13px} */
+/* div#sisalto a:visited{color: #336699; background:url("/images/external-visited.png") no-repeat right top;padding-right:13px} */
 div#sisalto a[href^="http://kay.ayy.fi"],
 div#sisalto a[href^="mailto:"],
-div#sisalto a[href^="http://www.kayttajanystavat.fi"],
+div#sisalto a[href^="https://kayttajanystavat.fi"],
 div#sisalto a[href^="/"],
 div#sisalto a[href^=".."],
 div#sisalto a[href^="#"],
@@ -203,7 +203,7 @@ ul#icons span.ui-icon {float: left; margin: 0 4px;}
 	position: absolute;
 }
 .tooltip:hover span {
-	border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; 
+	border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 	position: absolute; left: 1em; top: 2em; z-index: 99;
 	margin-left: 0; width: 250px;
@@ -220,17 +220,17 @@ ul#icons span.ui-icon {float: left; margin: 0 4px;}
 .classic {background: #dcecfa; border: 1px solid #3399cc; text-align: left; color: #000;}
 
 label.checkbox_checked {
-	background: #3399cc url(http://kayttajanystavat.fi/images/kay-luukku-ruksittu.png) no-repeat;	
+	background: #3399cc url(/images/kay-luukku-ruksittu.png) no-repeat;
 	display: block;
 	padding-left: 30px;
 }
 label.checkbox_unchecked  {
-	background: #3399cc url(http://kayttajanystavat.fi/images/kay-luukku-tyhja.png) no-repeat;	
+	background: #3399cc url(/images/kay-luukku-tyhja.png) no-repeat;
 	display: block;
 	padding-left: 30px;
 }
 
-/* 
+/*
 label:hover{
 	color: #efefef;
 }

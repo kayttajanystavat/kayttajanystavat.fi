@@ -58,6 +58,6 @@ elseif(($tyyppi == "tapahtumat") AND (ISSET($_SESSION['kiitos_tapahtuma_id'])))
 }
 else
 {
-  header('Location: http://www.kayttajanystavat.fi/');
+  header('Location: https://kayttajanystavat.fi/');
 }
 ?>

@@ -32,7 +32,7 @@ if((preg_match('/^([A-Za-z0-9_.-]+)([a-f0-9]{32})$/',$aktivointikoodi)) AND ($ak
       $_SESSION["vahvista_email_osoite"] = $email_tarkistus;
       // hae tyypin tiedot kannasta
       // lähetä tiedot sähköpostitse hallitukselle
-      header('Location: http://kayttajanystavat.fi/vahvista/kiitos');
+      header('Location: https://kayttajanystavat.fi/vahvista/kiitos');
       exit;
     }
     elseif($rek_aktivoitu_tarkistus == 1)
@@ -52,6 +52,6 @@ if((preg_match('/^([A-Za-z0-9_.-]+)([a-f0-9]{32})$/',$aktivointikoodi)) AND ($ak
 else
 {
   // koodissa ei ole järkeä
-  header('Location: http://kayttajanystavat.fi/liity');
+  header('Location: https://kayttajanystavat.fi/liity');
 }
 ?>

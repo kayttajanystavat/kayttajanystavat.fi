@@ -14,12 +14,12 @@ if(mysql_num_rows($result_arkisto) == 1)
   $arkisto_downloadName = $rivi_arkisto[1];
   $arkisto_systemName = $rivi_arkisto[2];
   $arkisto_mimeType = $rivi_arkisto[3];
-  header('Content-type: '.$arkisto_mimeType);	
+  header('Content-type: '.$arkisto_mimeType);
   header('Content-Disposition: attachment; filename='.$arkisto_downloadName);
   readfile($arkisto_systemName);
 }
 
 include "../library/sulje_db.php";
-header('Location: http://kayttajanystavat.fi/yhdistys/arkisto');
+header('Location: https://kayttajanystavat.fi/yhdistys/arkisto');
 exit;
 ?>

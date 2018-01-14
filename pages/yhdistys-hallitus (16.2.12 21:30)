@@ -49,7 +49,7 @@ $nayta = stripslashes($_GET['nayta']);
 if ($nayta == "kaikki")
 {
 ?>
-<p style="clear: both"><a href="http://www.kayttajanystavat.fi/yhdistys/hallitus">Piilota vanhat...</a></p>
+<p style="clear: both"><a href="https://kayttajanystavat.fi/yhdistys/hallitus">Piilota vanhat...</a></p>
 <a name="hallitukset"></a>
 
 <p>Hallitus 2010<br />
@@ -142,6 +142,6 @@ Opintovastaava <strong>Antti Oulasvirta</strong>
 }
 else
 {
-  echo "<p style=\"clear: both\"><a href=\"http://www.kayttajanystavat.fi/yhdistys/hallitus/kaikki#hallitukset\">Aiemmat hallitukset...</a></p>";
+  echo "<p style=\"clear: both\"><a href=\"https://kayttajanystavat.fi/yhdistys/hallitus/kaikki#hallitukset\">Aiemmat hallitukset...</a></p>";
 }
 ?>

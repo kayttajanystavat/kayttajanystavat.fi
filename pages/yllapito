@@ -5,7 +5,7 @@ $poisKaytosta = true;
 
 if( $poisKaytosta )
 {
-  header('Location: http://kayttajanystavat.fi/etusivu');
+  header('Location: https://kayttajanystavat.fi/');
   exit;
 }
 
@@ -21,7 +21,7 @@ elseif($toiminto == "jasenrekisteri")
 }
 else
 {
-  header('Location: http://kayttajanystavat.fi/etusivu');
+  header('Location: https://kayttajanystavat.fi/');
   exit;
 }
 

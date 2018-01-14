@@ -13,7 +13,7 @@ AddDefaultCharset utf-8
 # Osoitteiden siistinnät
 RewriteEngine on
 RewriteRule images/captcha.png /captcha/securimage_show.php [NC]
-RewriteRule ^(etusivu|yhdistys|tapahtumat|liity|yhteys|403|404|500|kiitos|kirjaudu|yllapito|ilmoittaudu|rekisteriseloste)/?$ index.php?s=$1 [NC]
+RewriteRule ^(yhdistys|tapahtumat|liity|yhteys|403|404|500|kiitos|kirjaudu|yllapito|ilmoittaudu|rekisteriseloste)/?$ index.php?s=$1 [NC]
 RewriteRule ^ulos/?$ kirjaa-ulos.php [NC]
 RewriteRule ^kirjaudu/(tapahtumat|testi) index.php?s=kirjaudu&ohjaa=$1 [NC]
 RewriteRule ^tapahtumat/([0-9]+) index.php?s=tapahtumat&tid=$1 [NC]
@@ -27,33 +27,20 @@ RewriteRule ^yhdistys/(esittely|hallitus|saannot|arkisto) index.php?s=yhdistys&y
 RewriteRule ^yllapito/(jasenrekisteri|tapahtumat) index.php?s=yllapito&toiminto=$1 [NC]
 RewriteRule ^ilmoittaudu/([0-9]+) index.php?s=ilmoittaudu&tid=$1 [NC]
 # Vanhojen sivujen uudelleenohjaukset
-RewriteRule ^ibm-ekskursio/$ http://kayttajanystavat.fi/tapahtumat/menneet [R=301,L]
-RewriteRule ^tieto-ekskursio/$ http://kayttajanystavat.fi/tapahtumat/menneet [R=301,L]
-RewriteRule ^wiki/Käyttäjän_ystävät$ http://kayttajanystavat.fi/etusivu [R=301,L]
-RewriteRule ^wiki/Tietoa_KäYstä$ http://kayttajanystavat.fi/yhdistys/esittely [R=301,L]
-RewriteRule ^wiki/Tulevat_tapahtumat$ http://kayttajanystavat.fi/tapahtumat/tulevat [R=301,L]
-RewriteRule ^wiki/Menneet_tapahtumat$ http://kayttajanystavat.fi/tapahtumat/menneet [R=301,L]
-RewriteRule ^wiki/Virallisia_dokumentteja$ http://kayttajanystavat.fi/yhdistys/arkisto [R=301,L]
-RewriteRule ^wiki/Yhdistyksen_säännöt$ http://kayttajanystavat.fi/yhdistys/saannot [R=301,L]
-RewriteRule ^wiki/Hallitus$ http://kayttajanystavat.fi/yhdistys/hallitus [R=301,L]
-RewriteRule ^wiki/Liittyminen_yhdistyksen_jäseneksi$ http://kayttajanystavat.fi/liity [R=301,L]
-RewriteRule ^wiki/.*$ http://kayttajanystavat.fi/etusivu [R=301,L]
-RewriteRule ^tietoa/.*$ http://kayttajanystavat.fi/etusivu [R=301,L]
-RewriteRule ^kirjoituksia/.*$ http://kayttajanystavat.fi/etusivu [R=301,L]
-RewriteRule ^planet/.*$ http://kayttajanystavat.fi/etusivu [R=301,L]
-RewriteRule ^opiskelu/.*$ http://kayttajanystavat.fi/etusivu [R=301,L]
-RewriteRule ^webcal/$ http://www.webcal.fi/cal.php?id=331 [R=301,L]
+RewriteRule ^etusivu/?$ https://kayttajanystavat.fi/ [R=301,NC,L]
+RewriteRule ^ibm-ekskursio/$ https://kayttajanystavat.fi/tapahtumat/menneet [R=301,L]
+RewriteRule ^tieto-ekskursio/$ https://kayttajanystavat.fi/tapahtumat/menneet [R=301,L]
+RewriteRule ^wiki/Käyttäjän_ystävät$ https://kayttajanystavat.fi/ [R=301,L]
+RewriteRule ^wiki/Tietoa_KäYstä$ https://kayttajanystavat.fi/yhdistys/esittely [R=301,L]
+RewriteRule ^wiki/Tulevat_tapahtumat$ https://kayttajanystavat.fi/tapahtumat/tulevat [R=301,L]
+RewriteRule ^wiki/Menneet_tapahtumat$ https://kayttajanystavat.fi/tapahtumat/menneet [R=301,L]
+RewriteRule ^wiki/Virallisia_dokumentteja$ https://kayttajanystavat.fi/yhdistys/arkisto [R=301,L]
+RewriteRule ^wiki/Yhdistyksen_säännöt$ https://kayttajanystavat.fi/yhdistys/saannot [R=301,L]
+RewriteRule ^wiki/Hallitus$ https://kayttajanystavat.fi/yhdistys/hallitus [R=301,L]
+RewriteRule ^wiki/Liittyminen_yhdistyksen_jäseneksi$ https://kayttajanystavat.fi/liity [R=301,L]
 # Virhesivut
 ErrorDocument 404 /404
 ErrorDocument 403 /403
 ErrorDocument 500 /500
 # Listausesto
 IndexIgnore *
-
-# www-ohjaus
-#RewriteBase /
-#RewriteCond %{HTTP_HOST} !^www\.kayttajanystavat\.fi$
-#RewriteCond %{HTTP_HOST} !^www\.
-#RewriteRule ^(.*)$ http://www.kayttajanystavat.fi/$1 [L,R=301]
-#RewriteRule ^ http://www.google.com/ [L,R=301]
-#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [L,R=301]

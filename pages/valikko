@@ -1,5 +1,5 @@
 <ul>
-  <li><a href="/etusivu"<?php if($sivu == "etusivu") echo " class=\"valittu\""; ?>>Etusivu</a></li>
+  <li><a href="/"<?php if($sivu == "etusivu") echo " class=\"valittu\""; ?>>Etusivu</a></li>
   <li><a href="/yhdistys"<?php if($sivu == "yhdistys") echo " class=\"valittu\""; ?>>Yhdistys</a>
   <?php
     if($sivu == "yhdistys") {

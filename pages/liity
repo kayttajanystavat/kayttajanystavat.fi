@@ -2,7 +2,7 @@
 // ei näytetä liittymissivua kirjautuneille käyttäjille
 if($onKirjautunut == true)
 {
-  header('Location: http://kayttajanystavat.fi/etusivu');
+  header('Location: https://kayttajanystavat.fi/');
   exit;
 }
 
@@ -132,7 +132,7 @@ if (ISSET($_POST["laheta"]))
   if($ansa_pituus > 0)
   {
     $virheita = true;
-    header('Location: http://kayttajanystavat.fi/etusivu');
+    header('Location: https://kayttajanystavat.fi/');
     exit;
   }
 
@@ -167,7 +167,7 @@ if (ISSET($_POST["laheta"]))
     $vahvistus_subject = "=?UTF-8?B?".base64_encode($otsikko)."?=";
     $vahvistus_body = "Hei,";
     $vahvistus_body .= "\n\nVahvista Käyttäjän ystävät ry:n jäsenhakemuksesi siirtymällä alla olevaan verkko-osoitteeseen.";
-    $vahvistus_body .= "\n\nhttp://kayttajanystavat.fi/vahvista/$aktivointikoodi";
+    $vahvistus_body .= "\n\nhttps://kayttajanystavat.fi/vahvista/$aktivointikoodi";
     $vahvistus_body .= "\n\nVahvistus tulee tehdä kahden viikon kuluessa eli viimeistään " . $viimeistaan . ".";
     $vahvistus_body .= "\n\n-- ";
     $vahvistus_body .= "\nKäyttäjän ystävät";
@@ -177,7 +177,7 @@ if (ISSET($_POST["laheta"]))
     if (mail($vahvistus_to, $vahvistus_subject, $vahvistus_body, $vahvistus_headers))
     {
 	 $_SESSION['kiitos_email_osoite'] = $email;
-	 header('Location: http://kayttajanystavat.fi/liity/kiitos');
+	 header('Location: https://kayttajanystavat.fi/liity/kiitos');
 	 exit;
     }
     else
@@ -291,7 +291,7 @@ Jäseneksi voi liittyä oheisen lomakkeen täyttämällä.</p>
 </form>
 </div>
 <p>Merkityt (•) kentät ovat pakollisia.</p>
-<p>Henkilötietolain edellyttämä <a href="http://kayttajanystavat.fi/rekisteriseloste">rekisteriseloste</a>.</p>
+<p>Henkilötietolain edellyttämä <a href="https://kayttajanystavat.fi/rekisteriseloste">rekisteriseloste</a>.</p>
 <?php
 }
 ?>
