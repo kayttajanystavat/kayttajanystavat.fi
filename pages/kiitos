@@ -26,11 +26,11 @@ elseif(($tyyppi == "tapahtumat") AND (ISSET($_SESSION['kiitos_tapahtuma_id'])))
   $kiitos_tapahtuma_taynna = $_SESSION['kiitos_tapahtuma_taynna'];
   if($kiitos_tapahtuma_taynna == '1')
   {
-    echo "<p><strong>Tapahtuma on täynnä, olet jonossa</strong>. Yhteyshenkilö ottaa sähköpostitse yhteyttä, jos paikkoja vapautuu tai määrä kasvaa.</p>";	
+    echo "<p><strong>Tapahtuma on täynnä, olet jonossa</strong>. Yhteyshenkilö ottaa sähköpostitse yhteyttä, jos paikkoja vapautuu tai määrä kasvaa.</p>";
   }
   else
   {
-    echo "<p>Kiitos, ilmoittautuminen on kirjattu. Yhteyshenkilö ottaa sähköpostitse yhteyttä osallistujiin ennen tapahtumaa tarkempia ohjeita antaakseen.</p>";
+    echo "<p>Kiitos, ilmoittautumisesi on nyt vastaanotettu.</p>";
   $sql_yhteenveto = "SELECT UNIX_TIMESTAMP(ajankohta_alk) AS unixaika, nimi, sijainti, sijainti_linkki, vastuuhlo, maksu FROM Tapahtumat WHERE id='$kiitos_tapahtuma_id'";
 	  $result_yhteenveto = mysql_query($sql_yhteenveto);
 	  // sijoitetaan tietokantahaun tulokset muuttujiin
@@ -41,16 +41,16 @@ elseif(($tyyppi == "tapahtumat") AND (ISSET($_SESSION['kiitos_tapahtuma_id'])))
 	  $t_sijainti_linkki = $rivi_yhteenveto[3];
   	  $t_vastuuhlo = $rivi_yhteenveto[4];
 	  $t_maksu = $rivi_yhteenveto[5];
-	
+
 	  $t_vkonpaiva_indeksi = date("w", $t_aika);
 	  $paivat_fi_lyh = array("maanantai", "tiistai", "keskiviikko", "torstai", "perjantai", "lauantai", "sunnuntai");
 	  $vkonpaiva_lyh = $paivat_fi_lyh[$t_vkonpaiva_indeksi - 1];
 	  $t_pvm = date("j.n.Y", $t_aika);
 	  $t_klo = date("H.i", $t_aika);
-	
+
 	  echo "<p>Osallistuja: <strong>$kiitos_tapahtuma_osallistuja</strong></p><p>Tapahtuma: <strong>$t_nimi</strong><br />Ajankohta: <strong>$vkonpaiva_lyh $t_pvm klo $t_klo</strong><br />Paikka: <strong><a href=\"$t_sijainti_linkki\">$t_sijainti</a></strong><br />Yhteyshenkilö: <strong>$t_vastuuhlo</strong></p><p>Ilmoita (joko suoraan yhteyshenkilölle tai <a href=\"mailto:hallitus@kayttajanystavat.fi\">hallitus@kayttajanystavat.fi</a>), jos osallistumisesi peruuntuu.</p>";
   }
-		
+
   // echo "<p><i>Tähän vielä yhteenveto tapahtumasta (nimi, ajankohta, vastuuhenkilö) ja ohjeet kuinka toimia, jos ei pääsekään paikalle.</i></p>";
   unset($_SESSION['kiitos_tapahtuma_id']);
   unset($_SESSION['kiitos_tapahtuma_osallistuja']);
@@ -61,4 +61,3 @@ else
   header('Location: http://www.kayttajanystavat.fi/');
 }
 ?>
-

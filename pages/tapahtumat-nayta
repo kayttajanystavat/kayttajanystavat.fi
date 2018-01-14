@@ -8,7 +8,7 @@ $tarkistus_unixaika = $rivi_tarkistus[1];
 
 if(mysql_num_rows($result_tarkistus) != 1)
 {
-  header('Location: http://kayttajanystavat.fi/tapahtumat/tulevat');
+  header('Location: https://kayttajanystavat.fi/tapahtumat/tulevat');
   exit;
 }
 else
@@ -17,7 +17,7 @@ else
   $erotus = $nykyhetki - $tarkistus_unixaika;
   if($erotus > 172800)
   {
-    header('Location: http://kayttajanystavat.fi/tapahtumat/menneet');
+    header('Location: https://kayttajanystavat.fi/tapahtumat/menneet');
     exit;
   }
 
@@ -147,7 +147,7 @@ if(($ilmo != 0) AND ($unix_ilmo_alkaa <= time()))
 if(($unix_ilmo_alkaa <= time()) AND $unix_ilmo_loppuu > time())
 {
   echo "<tr><td class=\"vasen\">Ilmoittaudu!</td><td class=\"oikea\">";
-  echo "<form method=\"post\" action=\"http://kayttajanystavat.fi/ilmoittaudu/$tapahtumaid\">";
+  echo "<form method=\"post\" action=\"https://kayttajanystavat.fi/ilmoittaudu/$tapahtumaid\">";
   echo "<input type=\"hidden\" name=\"tid\" value=\"$tapahtumaid\" />";
   if($osallistujalaskuri >= $max_osallist)
   {

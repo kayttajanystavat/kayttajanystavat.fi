@@ -122,7 +122,7 @@ else
     if(($ilmo != 0) AND ($unix_ilmo_alkaa <= time()) AND $unix_ilmo_loppuu > time())
     {
       echo "<tr><td class=\"vasen\">Ilmoittaudu!</td><td class=\"oikea\">";
-      echo "<form method=\"post\" action=\"http://kayttajanystavat.fi/ilmoittaudu/$tapahtumaid\">";
+      echo "<form method=\"post\" action=\"https://kayttajanystavat.fi/ilmoittaudu/$tapahtumaid\">";
       echo "<input type=\"hidden\" name=\"tid\" value=\"$tapahtumaid\" />";
       if($osallistujalaskuri >= $max_osallist)
       {

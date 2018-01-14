@@ -1,4 +1,4 @@
-<?php
+y<?php
 $ilmotid = mysql_real_escape_string($_GET['tid']);
 $naytaLomake = true;
 $virheita = false;
@@ -58,7 +58,7 @@ if (ISSET($_POST["ilmoittaudu"]))
   // email
   $email_alkuosa = explode("@", $email);
   $email_alkuosa_pituus = mb_strlen($email_alkuosa[0]);
-  if (!ereg("^([_a-z0-9-]+)(\.[_a-z0-9-]+)*@([a-z0-9-]+)(\.[a-z0-9-]+)*(\.[a-z]{2,4})$",$email))
+  if (!ereg("^([_a-zA-Z0-9-]+)(\.[_a-z0-9-]+)*@([a-z0-9-]+)(\.[a-z0-9-]+)*(\.[a-z]{2,4})$",$email))
   {
     $virheita = true;
     $email_virhe = "Sähköpostiosoite ei ole kelvollinen. Osoitteen tulee olla toimiva ja muotoa <i>tunnus@osoite.fi</i>. ";
@@ -235,7 +235,7 @@ echo "</td></tr>";
 <tr><td class="vasen">Suora linkki</td><td class="oikea"><a href="/tapahtumat/<?php echo $ilmotid; ?>">kayttajanystavat.fi/tapahtumat/<?php echo $ilmotid; ?></a></td></tr>
 <tr><td class="vasen">Ilmoittaudu!</td><td class="oikea">
 <div id="ilmolomake">
-<form method="post" action="http://kayttajanystavat.fi/ilmoittaudu/<?php echo $ilmotid; ?>">
+<form method="post" action="https://kayttajanystavat.fi/ilmoittaudu/<?php echo $ilmotid; ?>">
 Ole ystävällinen ja täytä ainakin tähdellä (*) merkityt kentät.<br /><br />
 
 <input type="hidden" name="tid" id="tid" value="<?php echo $ilmotid; ?>" />
