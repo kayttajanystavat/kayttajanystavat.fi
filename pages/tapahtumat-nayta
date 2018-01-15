@@ -42,7 +42,7 @@ else
   $vkonpaiva_pit = $paivat_fi_pit[$vkonpaiva_indeksi - 1];
   $lyhytpvm = date("j.n.", $unixaika);
   $pidempipvm = date("j.n.Y", $unixaika);
-  $klo = date("H.i", $unixaika);   
+  $klo = date("H.i", $unixaika);
   $sijainti = $rivi_tapahtuma[8];
   $sijainti_linkki = $rivi_tapahtuma[9];
   $unix_ilmo_alkaa = $rivi_tapahtuma[13];
@@ -74,10 +74,9 @@ else
 <tr><td class="vasen">Ajankohta</td><td class="oikea"><?php echo "$vkonpaiva_lyh $pidempipvm klo $klo"; ?></td></tr>
 <tr><td class="vasen">Sijainti</td><td class="oikea"><a href="<?php echo $sijainti_linkki; ?>"><?php echo $sijainti; ?></a></td></tr>
 <?php
-echo "<tr><td class=\"vasen\">Ilmoittautuminen</td><td class=\"oikea\">";
-if($ilmo == 0) { echo "Ei ennakkoilmoittautumista"; }
-else 
-{  
+if($ilmo != 0)
+{
+  echo "<tr><td class=\"vasen\">Ilmoittautuminen</td><td class=\"oikea\">";
   if($unix_ilmo_loppuu < time())
   {
     echo "Ilmoittautuminen on päättynyt.";
@@ -98,8 +97,8 @@ else
     $ilmoloppuu_klo = date("H.i", $unix_ilmo_loppuu);
     echo "$ilmoloppuu_vkonpaiva $ilmoloppuu_pvm klo $ilmoloppuu_klo mennessä";
   }
+  echo "</td></tr>";
 }
-echo "</td></tr>";
 ?>
 <tr><td class="vasen">Hinta</td><td class="oikea"><?php if(($maksu == "") OR ($maksu == "0")) { echo "Maksuton"; } else { echo "$maksu euroa"; } ?></td></tr>
 <?php if($vastuuhlo != "") { echo "<tr><td class=\"vasen\">Vastuuhenkilö</td><td class=\"oikea\">$vastuuhlo</td></tr>"; }?>
@@ -155,7 +154,7 @@ if(($unix_ilmo_alkaa <= time()) AND $unix_ilmo_loppuu > time())
   }
   else
   {
-	    echo "<input type=\"submit\" name=\"ilmoittaudunyt\" id=\"laheta\" value=\"Ilmoittaudu\" tabindex=\"1\" />"; 
+	    echo "<input type=\"submit\" name=\"ilmoittaudunyt\" id=\"laheta\" value=\"Ilmoittaudu\" tabindex=\"1\" />";
   }
   echo "</form>";
   echo "</td></tr>";

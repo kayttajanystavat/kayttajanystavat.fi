@@ -50,10 +50,9 @@ else
 
     echo "<tr><td class=\"vasen\">Ajankohta</td><td class=\"oikea\">$vkonpaiva_lyh $pidempipvm klo $klo</td></tr>";
     echo "<tr><td class=\"vasen\">Sijainti</td><td class=\"oikea\"><a href=\"$sijainti_linkki\">$sijainti</a></td></tr>";
-    echo "<tr><td class=\"vasen\">Ilmoittautuminen</td><td class=\"oikea\">";
-    if($ilmo == 0) { echo "Ei ennakkoilmoittautumista"; }
-    else 
-    {  
+    if($ilmo != 0)
+    {
+      echo "<tr><td class=\"vasen\">Ilmoittautuminen</td><td class=\"oikea\">";
       if($unix_ilmo_loppuu < time())
       {
         echo "Ilmoittautuminen on päättynyt.";
@@ -74,8 +73,8 @@ else
         $ilmoloppuu_klo = date("H.i", $unix_ilmo_loppuu);
         echo "$ilmoloppuu_vkonpaiva $ilmoloppuu_pvm klo $ilmoloppuu_klo mennessä";
       }
+      echo "</td></tr>";
     }
-    echo "</td></tr>";
     echo "<tr><td class=\"vasen\">Hinta</td><td class=\"oikea\">";
     if(($maksu == "") OR ($maksu == "0")) { echo "Maksuton"; } else { echo "$maksu euroa"; }
     echo "</td></tr>";
@@ -113,7 +112,7 @@ else
       echo "<a class=\"tooltip tooltip_normaali\" name=\"osallistujat_t$tapahtumaid\" href=\"#osallistujat_t$tapahtumaid\">$ilmoittautuneita / $max_osallist<span class=\"classic\">$osallistujalista</span></a>";
       if($osallistujalaskuri >= $max_osallist) {echo " (täynnä)"; }
       }
-      
+
       echo "</td></tr>";
     }
     echo "<tr><td class=\"vasen\">Suora linkki</td><td class=\"oikea\"><a href=\"/tapahtumat/$tapahtumaid\">kayttajanystavat.fi/tapahtumat/$tapahtumaid</a></td></tr>";
@@ -130,7 +129,7 @@ else
       }
       else
       {
-	    echo "<input type=\"submit\" name=\"ilmoittaudunyt\" id=\"laheta\" value=\"Ilmoittaudu\" tabindex=\"1\" />"; 
+	    echo "<input type=\"submit\" name=\"ilmoittaudunyt\" id=\"laheta\" value=\"Ilmoittaudu\" tabindex=\"1\" />";
       }
       echo "</form>";
       echo "</td></tr>";
