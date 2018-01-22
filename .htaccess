@@ -4,16 +4,10 @@ RewriteCond %{QUERY_STRING} ^(%2d|-)[^=]+$ [NC]
 RewriteRule ^(.*) $1? [L]
 </IfModule>
 
-
-
-
 AddDefaultCharset utf-8
-# Oletussivu
-# DirectoryIndex hetkinen.html
-# Osoitteiden siistinnät
 RewriteEngine on
 RewriteRule images/captcha.png /captcha/securimage_show.php [NC]
-RewriteRule ^(yhdistys|tapahtumat|liity|yhteys|403|404|500|kiitos|kirjaudu|yllapito|ilmoittaudu|rekisteriseloste)/?$ index.php?s=$1 [NC]
+RewriteRule ^(yhdistys|tapahtumat|yhteys|403|404|500|kiitos|kirjaudu|yllapito|ilmoittaudu|rekisteriseloste)/?$ index.php?s=$1 [NC]
 RewriteRule ^ulos/?$ kirjaa-ulos.php [NC]
 RewriteRule ^kirjaudu/(tapahtumat|testi) index.php?s=kirjaudu&ohjaa=$1 [NC]
 RewriteRule ^tapahtumat/([0-9]+) index.php?s=tapahtumat&tid=$1 [NC]
@@ -28,6 +22,7 @@ RewriteRule ^yllapito/(jasenrekisteri|tapahtumat) index.php?s=yllapito&toiminto=
 RewriteRule ^ilmoittaudu/([0-9]+) index.php?s=ilmoittaudu&tid=$1 [NC]
 # Vanhojen sivujen uudelleenohjaukset
 RewriteRule ^etusivu/?$ https://kayttajanystavat.fi/ [R=301,NC,L]
+RewriteRule ^liity/?$ https://docs.google.com/forms/d/e/1FAIpQLSen-C_S2BSp5UflfXDjYZIMNvKm-M-zcIghHOcTrc5gKcXjVw/viewform [R=302,NC,L]
 RewriteRule ^ibm-ekskursio/$ https://kayttajanystavat.fi/tapahtumat/menneet [R=301,L]
 RewriteRule ^tieto-ekskursio/$ https://kayttajanystavat.fi/tapahtumat/menneet [R=301,L]
 RewriteRule ^wiki/Käyttäjän_ystävät$ https://kayttajanystavat.fi/ [R=301,L]
